@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="blue_100">#F2F9FE</color>
+    <color name="blue_200">#E2F2FD</color>
+    <color name="blue_300">#86C2F3</color>
+    <color name="blue_500">#1193FE</color>
+    <color name="blue_700">#048CFE</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="yellow_700">#FFC700</color>
+    <color name="uncheck_color">#C23636</color>
+    <color name="check_color">#36C2BB</color>
+    <color name="paper_color">#F4E3B1</color>
+    <color name="gray_100">#F9F9FA</color>
+    <color name="bg_pink_500">#F38DA2</color>
+    <color name="bg_pink_200">#F5A4B5</color>
+    <color name="brown">#3b3738</color>
+    <color name="dark_grey">#454545</color>
+</resources>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/paper_color"
+    android:orientation="vertical"
+    tools:context=".view.PlateFourteenActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/paper_color">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_back"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nextrabold"
+                android:text="@string/test_quiz"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp">
+
+            <TextView
+                android:id="@+id/tv_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nextrabold"
+                android:text="@string/page"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/nsemibold"
+                android:text="@string/text_for_essay"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_page" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_quiz"
+                android:layout_width="360dp"
+                android:layout_height="360dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_question"
+                app:srcCompat="@drawable/number_seventy_four" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_quiz">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edt_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:hint="@string/hint_essay"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintTextColor="@color/blue_700">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_field"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
+                        android:digits="0123456789"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:textColor="@color/blue_700"
+                        android:textColorHint="@color/blue_700" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_choice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:id="@+id/layout_choice_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_white_rounded_10"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_choice_one"
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:padding="10dp"
+                            android:src="@drawable/number_two_2" />
+
+                        <TextView
+                            android:id="@+id/tv_choice_one"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nsemibold"
+                            android:gravity="center"
+                            android:paddingVertical="3dp"
+                            android:text="@string/text_pilihan_1"
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+                        <!--            <CheckBox-->
+                        <!--                android:id="@+id/checkbox1"-->
+                        <!--                android:layout_width="wrap_content"-->
+                        <!--                android:layout_height="wrap_content"-->
+                        <!--                android:layout_margin="8dp"-->
+                        <!--                android:visibility="gone" />-->
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_choice_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:background="@drawable/bg_white_rounded_10"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_choice_two"
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:padding="10dp"
+                            android:src="@drawable/number_eight_2" />
+
+                        <TextView
+                            android:id="@+id/tv_choice_two"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nsemibold"
+                            android:gravity="center"
+                            android:paddingVertical="3dp"
+                            android:text="@string/text_pilihan_2"
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+                        <!--            <CheckBox-->
+                        <!--                android:id="@+id/checkbox1"-->
+                        <!--                android:layout_width="wrap_content"-->
+                        <!--                android:layout_height="wrap_content"-->
+                        <!--                android:layout_margin="8dp"-->
+                        <!--                android:visibility="gone" />-->
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_choice_three"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_white_rounded_10"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_choice_three"
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:padding="10dp"
+                            android:src="@drawable/there_isnt_any" />
+
+                        <TextView
+                            android:id="@+id/tv_choice_three"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nsemibold"
+                            android:gravity="center"
+                            android:paddingVertical="3dp"
+                            android:text="@string/text_pilihan_3"
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+                        <!--            <CheckBox-->
+                        <!--                android:id="@+id/checkbox1"-->
+                        <!--                android:layout_width="wrap_content"-->
+                        <!--                android:layout_height="wrap_content"-->
+                        <!--                android:layout_margin="8dp"-->
+                        <!--                android:visibility="gone" />-->
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/bg_white_rounded_10"
+                    android:enabled="false"
+                    android:fontFamily="@font/nbold"
+                    android:text="@string/next_page"
+                    android:textAllCaps="false"
+                    android:textColor="@color/blue_700"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</LinearLayout>
