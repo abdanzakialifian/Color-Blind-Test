@@ -15,10 +15,12 @@
         <entry key="..\:/Project Android/blindcolortest2/app/src/main/res/drawable/ic_soal.xml" value="0.2075" />
         <entry key="..\:/Project Android/blindcolortest2/app/src/main/res/layout/activity_about.xml" value="0.2" />
         <entry key="..\:/Project Android/blindcolortest2/app/src/main/res/layout/activity_about_ishihara.xml" value="0.3137254901960784" />
+        <entry key="..\:/Project Android/blindcolortest2/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/Project Android/blindcolortest2/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Project Android/blindcolortest2/app/src/main/res/layout/activity_plat_fourteen.xml" value="0.25" />
         <entry key="..\:/Project Android/blindcolortest2/app/src/main/res/layout/activity_score.xml" value="0.2" />
         <entry key="..\:/Project Android/blindcolortest2/app/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="..\:/Project Android/blindcolortest2/app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
         <entry key="..\:/Project Android/blindcolortest2/app/src/main/res/layout/fragment_page_five.xml" value="0.2" />
         <entry key="..\:/Project Android/blindcolortest2/app/src/main/res/layout/fragment_page_four.xml" value="0.1859375" />
         <entry key="..\:/Project Android/blindcolortest2/app/src/main/res/layout/fragment_page_nine.xml" value="0.25" />
@@ -28,6 +30,7 @@
         <entry key="..\:/Project Android/blindcolortest2/app/src/main/res/layout/fragment_page_two.xml" value="0.1859375" />
         <entry key="..\:/Project Android/blindcolortest2/app/src/main/res/layout/item_jawaban.xml" value="0.33" />
         <entry key="..\:/Project Android/blindcolortest2/app/src/main/res/layout/item_list_choice.xml" value="0.19895833333333332" />
+        <entry key="..\:/Project Android/blindcolortest2/app/src/main/res/layout/layout_about_ishihara.xml" value="0.2" />
       </map>
     </option>
   </component>

@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class SavedAnswerData(
+data class SavedAnswer(
     val questionNumber: String,
     val question: String,
     val answer: String,

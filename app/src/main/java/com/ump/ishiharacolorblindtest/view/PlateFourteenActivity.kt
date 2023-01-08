@@ -18,13 +18,13 @@ import com.ump.ishiharacolorblindtest.databinding.ActivityPlatFourteenBinding
 import com.ump.ishiharacolorblindtest.helper.QuestionList
 import com.ump.ishiharacolorblindtest.helper.gone
 import com.ump.ishiharacolorblindtest.helper.visible
-import com.ump.ishiharacolorblindtest.model.QuestData
-import com.ump.ishiharacolorblindtest.model.SavedAnswerData
+import com.ump.ishiharacolorblindtest.model.QuestionData
+import com.ump.ishiharacolorblindtest.model.SavedAnswer
 import com.ump.ishiharacolorblindtest.view.ScoreActivity.Companion.TEST_RESULT
 
 class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
-    private lateinit var questionList: List<QuestData>
-    private val savedAnswer = ArrayList<SavedAnswerData>()
+    private lateinit var questionList: List<QuestionData>
+    private val savedAnswer = ArrayList<SavedAnswer>()
     private var currentPage: Int = 1
     private var currentPoint: Int = 0
     private var myAnswer: String = ""
@@ -62,14 +62,14 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
             tvPage.text = resources.getString(R.string.page, currentPage.toString())
 
             Glide.with(this@PlateFourteenActivity)
-                .load(resources.getIdentifier(question.questionImage, "drawable", packageName))
-                .into(imgQuiz)
+                .load(resources.getIdentifier(question.image, "drawable", packageName))
+                .into(imgQuestion)
 
             if (currentPage == questionList.size) {
                 btnSubmit.text = resources.getString(R.string.finished)
             }
 
-            if (question.questionImage.substring(0, 6) == NUMBER) {
+            if (question.id in 1..8 || question.id == 10 || question.id in 12..13) {
                 edtField.visible()
                 rvMultipleChoice.gone()
 
@@ -102,7 +102,8 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
                     else -> tvQuestion.text = resources.getString(R.string.text_for_essay)
                 }
 
-                val listQuestionChoice = arrayListOf(question.opt1, question.opt2, question.opt3)
+                val listQuestionChoice =
+                    arrayListOf(question.optionOne, question.optionTwo, question.optionThree)
 
                 val adapter = MultipleChoiceAdapter()
                 adapter.setListMultipleChoice(listQuestionChoice)
@@ -119,9 +120,9 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
             btnSubmit.setOnClickListener {
                 // save answer to list
                 savedAnswer.add(
-                    SavedAnswerData(
+                    SavedAnswer(
                         question.id.toString(),
-                        question.questionImage,
+                        question.image,
                         myAnswer,
                         question.correctAnswer
                     )
@@ -230,10 +231,10 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
         super.onWindowFocusChanged(hasFocus)
         binding.apply {
             if (!hasFocus) {
-                layoutQuiz.gone()
+                layoutQuestion.gone()
                 layoutLostFocus.visible()
             } else {
-                layoutQuiz.visible()
+                layoutQuestion.visible()
                 layoutLostFocus.gone()
             }
         }
@@ -241,9 +242,5 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
 
     override fun onBackPressed() {
         alertDialogOnBackPressed()
-    }
-
-    companion object {
-        private const val NUMBER = "number"
     }
 }

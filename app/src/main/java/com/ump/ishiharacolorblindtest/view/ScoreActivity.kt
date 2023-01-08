@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.ump.ishiharacolorblindtest.adapter.AnswerAdapter
 import com.ump.ishiharacolorblindtest.databinding.ActivityScoreBinding
-import com.ump.ishiharacolorblindtest.model.SavedAnswerData
+import com.ump.ishiharacolorblindtest.model.SavedAnswer
 
 
 class ScoreActivity : AppCompatActivity() {
@@ -39,8 +39,8 @@ class ScoreActivity : AppCompatActivity() {
             this.finish()
         }
 
-        val listFromActivity1: ArrayList<SavedAnswerData> =
-            intent.getSerializableExtra(TEST_RESULT) as ArrayList<SavedAnswerData>
+        val listFromActivity1: ArrayList<SavedAnswer> =
+            intent.getSerializableExtra(TEST_RESULT) as ArrayList<SavedAnswer>
 
         Log.d("SavedAnswer: ", listFromActivity1.toString())
 
@@ -171,182 +171,182 @@ class ScoreActivity : AppCompatActivity() {
 
     }
 
-    private fun arrayListData(listFromActivity1: ArrayList<SavedAnswerData>, which: Int = 3) {
+    private fun arrayListData(listFromActivity1: ArrayList<SavedAnswer>, which: Int = 3) {
         when (which) {
             1 -> {
                 listFromActivity1.add(
-                    SavedAnswerData("1", "q1", "12", "12"),
+                    SavedAnswer("1", "q1", "12", "12"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("2", "q2", "8", "8"),
+                    SavedAnswer("2", "q2", "8", "8"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("3", "q2", "5", "5"),
+                    SavedAnswer("3", "q2", "5", "5"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("4", "q2", "29", "29"),
+                    SavedAnswer("4", "q2", "29", "29"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("5", "q2", "74", "74"),
+                    SavedAnswer("5", "q2", "74", "74"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("6", "q2", "7", "7"),
+                    SavedAnswer("6", "q2", "7", "7"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("7", "q1", "45", "45"),
+                    SavedAnswer("7", "q1", "45", "45"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("8", "q2", "2", "2"),
+                    SavedAnswer("8", "q2", "2", "2"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("9", "q2", "garis3_3", "garis3_3"),
+                    SavedAnswer("9", "q2", "garis3_3", "garis3_3"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("10", "q2", "16", "16"),
+                    SavedAnswer("10", "q2", "16", "16"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("11", "q2", "garis2_3", "garis2_3"),
+                    SavedAnswer("11", "q2", "garis2_3", "garis2_3"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("12", "q2", "35", "35"),
+                    SavedAnswer("12", "q2", "35", "35"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("13", "q1", "96", "96"),
+                    SavedAnswer("13", "q1", "96", "96"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("14", "q1", "garis4_2", "garis4_2"),
+                    SavedAnswer("14", "q1", "garis4_2", "garis4_2"),
                 )
             }
             2 -> {
                 listFromActivity1.add(
-                    SavedAnswerData("1", "q1", "12", "12"),
+                    SavedAnswer("1", "q1", "12", "12"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("2", "q2", "3x", "8"),
+                    SavedAnswer("2", "q2", "3x", "8"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("3", "q2", "2x", "5"),
+                    SavedAnswer("3", "q2", "2x", "5"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("4", "q2", "70x", "29"),
+                    SavedAnswer("4", "q2", "70x", "29"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("5", "q2", "21x", "74"),
+                    SavedAnswer("5", "q2", "21x", "74"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("6", "q2", "70x", "7"),
+                    SavedAnswer("6", "q2", "70x", "7"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("7", "q1", "450x", "45"),
+                    SavedAnswer("7", "q1", "450x", "45"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("8", "q2", "20x", "2"),
+                    SavedAnswer("8", "q2", "20x", "2"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("9", "q2", "garis3_1x", "garis3_3"),
+                    SavedAnswer("9", "q2", "garis3_1x", "garis3_3"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("10", "q2", "160x", "16"),
+                    SavedAnswer("10", "q2", "160x", "16"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("11", "q2", "garis2_2x", "garis2_3"),
+                    SavedAnswer("11", "q2", "garis2_2x", "garis2_3"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("12", "q2", "5x", "35"),
+                    SavedAnswer("12", "q2", "5x", "35"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("13", "q1", "6x", "96"),
+                    SavedAnswer("13", "q1", "6x", "96"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("14", "q1", "garis4_3x", "garis4_2"),
+                    SavedAnswer("14", "q1", "garis4_3x", "garis4_2"),
                 )
             }
             3 -> {
                 listFromActivity1.add(
-                    SavedAnswerData("1", "q1", "12", "12"),
+                    SavedAnswer("1", "q1", "12", "12"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("2", "q2", "3", "8"),
+                    SavedAnswer("2", "q2", "3", "8"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("3", "q2", "2", "5"),
+                    SavedAnswer("3", "q2", "2", "5"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("4", "q2", "70", "29"),
+                    SavedAnswer("4", "q2", "70", "29"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("5", "q2", "21", "74"),
+                    SavedAnswer("5", "q2", "21", "74"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("6", "q2", "70", "7"),
+                    SavedAnswer("6", "q2", "70", "7"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("7", "q1", "450", "45"),
+                    SavedAnswer("7", "q1", "450", "45"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("8", "q2", "20", "2"),
+                    SavedAnswer("8", "q2", "20", "2"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("9", "q2", "garis3_1", "garis3_3"),
+                    SavedAnswer("9", "q2", "garis3_1", "garis3_3"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("10", "q2", "160", "16"),
+                    SavedAnswer("10", "q2", "160", "16"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("11", "q2", "garis2_2", "garis2_3"),
+                    SavedAnswer("11", "q2", "garis2_2", "garis2_3"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("12", "q2", "5", "35"),
+                    SavedAnswer("12", "q2", "5", "35"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("13", "q1", "6", "96"),
+                    SavedAnswer("13", "q1", "6", "96"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("14", "q1", "garis4_3", "garis4_2"),
+                    SavedAnswer("14", "q1", "garis4_3", "garis4_2"),
                 )
             }
             4 -> {
                 listFromActivity1.add(
-                    SavedAnswerData("1", "q1", "12", "12"),
+                    SavedAnswer("1", "q1", "12", "12"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("2", "q2", "3x", "8"),
+                    SavedAnswer("2", "q2", "3x", "8"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("3", "q2", "2", "5"),
+                    SavedAnswer("3", "q2", "2", "5"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("4", "q2", "70x", "29"),
+                    SavedAnswer("4", "q2", "70x", "29"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("5", "q2", "21x", "74"),
+                    SavedAnswer("5", "q2", "21x", "74"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("6", "q2", "70", "7"),
+                    SavedAnswer("6", "q2", "70", "7"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("7", "q1", "450x", "45"),
+                    SavedAnswer("7", "q1", "450x", "45"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("8", "q2", "20", "2"),
+                    SavedAnswer("8", "q2", "20", "2"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("9", "q2", "garis3_1", "garis3_3"),
+                    SavedAnswer("9", "q2", "garis3_1", "garis3_3"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("10", "q2", "160x", "16"),
+                    SavedAnswer("10", "q2", "160x", "16"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("11", "q2", "garis2_2", "garis2_3"),
+                    SavedAnswer("11", "q2", "garis2_2", "garis2_3"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("12", "q2", "5", "35"),
+                    SavedAnswer("12", "q2", "5", "35"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("13", "q1", "6x", "96"),
+                    SavedAnswer("13", "q1", "6x", "96"),
                 )
                 listFromActivity1.add(
-                    SavedAnswerData("14", "q1", "garis4_3", "garis4_2"),
+                    SavedAnswer("14", "q1", "garis4_3", "garis4_2"),
                 )
             }
         }

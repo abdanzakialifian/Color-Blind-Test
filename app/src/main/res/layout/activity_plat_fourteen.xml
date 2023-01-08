@@ -10,7 +10,7 @@
     tools:context=".view.PlateFourteenActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_quiz"
+        android:id="@+id/layout_question"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -94,18 +94,20 @@
                     android:text="@string/text_for_essay"
                     android:textColor="@color/black"
                     android:textSize="18sp"
+                    android:gravity="center"
+                    android:textAlignment="center"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_page" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/img_quiz"
+                    android:id="@+id/img_question"
                     android:layout_width="400dp"
                     android:layout_height="400dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_question"
-                    app:srcCompat="@drawable/number_seventy_four" />
+                    app:srcCompat="@drawable/number_seventy_four_plate_14" />
 
                 <LinearLayout
                     android:id="@+id/layout_bottom"
@@ -114,7 +116,7 @@
                     android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img_quiz">
+                    app:layout_constraintTop_toBottomOf="@id/img_question">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/edt_answer"

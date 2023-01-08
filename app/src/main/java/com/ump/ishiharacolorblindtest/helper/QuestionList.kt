@@ -1,12 +1,12 @@
 package com.ump.ishiharacolorblindtest.helper
 
-import com.ump.ishiharacolorblindtest.model.QuestData
+import com.ump.ishiharacolorblindtest.model.QuestionData
 
 object QuestionList {
-    fun getAllQuestionPlateFourteen(): ArrayList<QuestData> {
-        val listQuest: ArrayList<QuestData> = arrayListOf()
+    fun getAllQuestionPlateFourteen(): ArrayList<QuestionData> {
+        val listQuest: ArrayList<QuestionData> = arrayListOf()
 
-        val questionOne = QuestData(
+        val questionOne = QuestionData(
             1,
             "number_twelve",
             "",
@@ -16,7 +16,7 @@ object QuestionList {
         )
         listQuest.add(questionOne)
 
-        val questionTwo = QuestData(
+        val questionTwo = QuestionData(
             2,
             "number_eight",
             "",
@@ -26,7 +26,7 @@ object QuestionList {
         )
         listQuest.add(questionTwo)
 
-        val questionThree = QuestData(
+        val questionThree = QuestionData(
             3,
             "number_five",
             "",
@@ -36,7 +36,7 @@ object QuestionList {
         )
         listQuest.add(questionThree)
 
-        val questionFour = QuestData(
+        val questionFour = QuestionData(
             4,
             "number_twenty_nine",
             "",
@@ -46,7 +46,7 @@ object QuestionList {
         )
         listQuest.add(questionFour)
 
-        val questionFive = QuestData(
+        val questionFive = QuestionData(
             5,
             "number_seventy_four",
             "",
@@ -56,7 +56,7 @@ object QuestionList {
         )
         listQuest.add(questionFive)
 
-        val questionSix = QuestData(
+        val questionSix = QuestionData(
             6,
             "number_seven",
             "",
@@ -66,7 +66,7 @@ object QuestionList {
         )
         listQuest.add(questionSix)
 
-        val questionSeven = QuestData(
+        val questionSeven = QuestionData(
             7,
             "number_forty_five",
             "",
@@ -76,7 +76,7 @@ object QuestionList {
         )
         listQuest.add(questionSeven)
 
-        val questionEight = QuestData(
+        val questionEight = QuestionData(
             8,
             "number_two",
             "",
@@ -86,7 +86,7 @@ object QuestionList {
         )
         listQuest.add(questionEight)
 
-        val questionNine = QuestData(
+        val questionNine = QuestionData(
             9,
             "option_one",
             "option_one_1",
@@ -96,7 +96,7 @@ object QuestionList {
         )
         listQuest.add(questionNine)
 
-        val questionTen = QuestData(
+        val questionTen = QuestionData(
             10,
             "number_sixteen",
             "",
@@ -106,7 +106,7 @@ object QuestionList {
         )
         listQuest.add(questionTen)
 
-        val questionEleven = QuestData(
+        val questionEleven = QuestionData(
             11,
             "option_two",
             "option_two_1",
@@ -116,7 +116,7 @@ object QuestionList {
         )
         listQuest.add(questionEleven)
 
-        val questionTwelve = QuestData(
+        val questionTwelve = QuestionData(
             12,
             "number_thirty_five",
             "",
@@ -126,7 +126,7 @@ object QuestionList {
         )
         listQuest.add(questionTwelve)
 
-        val questionThirteen = QuestData(
+        val questionThirteen = QuestionData(
             13,
             "number_ninety_six",
             "",
@@ -136,7 +136,7 @@ object QuestionList {
         )
         listQuest.add(questionThirteen)
 
-        val questionFourteen = QuestData(
+        val questionFourteen = QuestionData(
             14,
             "option_three",
             "option_three_1",

@@ -8,13 +8,13 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.ump.ishiharacolorblindtest.R
 import com.ump.ishiharacolorblindtest.databinding.ItemJawabanBinding
-import com.ump.ishiharacolorblindtest.model.SavedAnswerData
+import com.ump.ishiharacolorblindtest.model.SavedAnswer
 
 class AnswerAdapter : RecyclerView.Adapter<AnswerAdapter.ListViewHolder>() {
-    private var savedAnswer = ArrayList<SavedAnswerData>()
+    private var savedAnswer = ArrayList<SavedAnswer>()
     private val number = arrayListOf<Int>()
 
-    fun setData(list: List<SavedAnswerData>?) {
+    fun setData(list: List<SavedAnswer>?) {
         if (list == null) return
         this.savedAnswer.clear()
         this.savedAnswer.addAll(list)
@@ -42,13 +42,13 @@ class AnswerAdapter : RecyclerView.Adapter<AnswerAdapter.ListViewHolder>() {
     @SuppressLint("SetTextI18n")
     class ListViewHolder(private val binding: ItemJawabanBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bindData(savedAnswerData: SavedAnswerData, i: Int) {
+        fun bindData(savedAnswer: SavedAnswer, i: Int) {
             with(binding) {
                 noPlate.text =
                     itemView.context.resources.getString(
-                        R.string.no_plate, savedAnswerData.questionNumber
+                        R.string.no_plate, savedAnswer.questionNumber
                     )
-                if (savedAnswerData.answer != savedAnswerData.correctAns) {
+                if (savedAnswer.answer != savedAnswer.correctAns) {
                     imgPlate.setImageResource(R.drawable.ic_uncheck)
                     imgPlate.imageTintList =
                         ColorStateList.valueOf(itemView.context.resources.getColor(R.color.uncheck_color))
@@ -58,8 +58,8 @@ class AnswerAdapter : RecyclerView.Adapter<AnswerAdapter.ListViewHolder>() {
                         ColorStateList.valueOf(itemView.context.resources.getColor(R.color.check_color))
                 }
                 itemView.setOnClickListener {
-                    val a = when (savedAnswerData.questionNumber) {
-                        "9" -> when (savedAnswerData.answer) {
+                    val a = when (savedAnswer.questionNumber) {
+                        "9" -> when (savedAnswer.answer) {
                             "garis3_1" -> {
                                 "2"
                             }
@@ -70,7 +70,7 @@ class AnswerAdapter : RecyclerView.Adapter<AnswerAdapter.ListViewHolder>() {
                                 "tidak ada"
                             }
                         }
-                        "11" -> when (savedAnswerData.answer) {
+                        "11" -> when (savedAnswer.answer) {
                             "garis2_1" -> {
                                 "pilihan 1"
                             }
@@ -81,7 +81,7 @@ class AnswerAdapter : RecyclerView.Adapter<AnswerAdapter.ListViewHolder>() {
                                 "pilihan 3"
                             }
                         }
-                        "14" -> when (savedAnswerData.answer) {
+                        "14" -> when (savedAnswer.answer) {
                             "garis4_1" -> {
                                 "pilihan 1"
                             }
@@ -93,7 +93,7 @@ class AnswerAdapter : RecyclerView.Adapter<AnswerAdapter.ListViewHolder>() {
                             }
                         }
                         else -> {
-                            savedAnswerData.answer
+                            savedAnswer.answer
                         }
                     }
                     Toast.makeText(
