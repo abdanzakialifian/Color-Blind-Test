@@ -7,10 +7,12 @@
     <string name="tes_selesai">Anda telah menyelesaikan\nTes buta warna metode Ishihara</string>
     <string name="my_name">Hi, %s</string>
     <string name="tes_buta_warna_value">Tes buta warna (%s)</string>
+    <string name="selected">Pilihan %s</string>
     <string name="jawaban_anda_value">Jawaban </string>
     <string name="text_for_essay">Angka berapa ini?</string>
     <string name="hint_essay">Jawab</string>
     <string name="text_for_multiple_choice">Ikuti warna %s pada plate, cocokan dengan gambar yang ada dibawah.</string>
+    <string name="text_for_multiple_choice_line">"Ikuti garis dari X ke X pada pelat, cocokan dengan gambar yang ada dibawah"</string>
     <string name="text_mc_11">Hijau</string>
     <string name="text_mc_14">Merah/Ungu</string>
     <string name="text_pilihan_3">Pilihan 3</string>
@@ -37,4 +39,10 @@
     <string name="color_blint_test_ishihara">Tes buta warna - Ishihara</string>
     <string name="test_quiz">Soal Tes</string>
     <string name="back_press_information">Tekan kembali lagi untuk keluar dari aplikasi.</string>
+    <string name="finished">Selesai</string>
+    <string name="back_to_quiz">Kembali ke soal</string>
+    <string name="back_to_main_menu">Kembali ke menu utama?</string>
+    <string name="deleted_sesi_information">Sesi ini akan dihapus jika anda keluar sekarang.</string>
+    <string name="cancel">Batal</string>
+    <string name="ok">Ok</string>
 </resources>

@@ -3,155 +3,149 @@ package com.ump.ishiharacolorblindtest.helper
 import com.ump.ishiharacolorblindtest.model.QuestData
 
 object QuestionList {
-    fun getAllQuestion(): ArrayList<QuestData> {
-        val quest: ArrayList<QuestData> = arrayListOf()
+    fun getAllQuestionPlateFourteen(): ArrayList<QuestData> {
+        val listQuest: ArrayList<QuestData> = arrayListOf()
 
-        val q1 = QuestData(
+        val questionOne = QuestData(
             1,
-            "angka_12",
-            "12",
-            "13",
-            "11",
+            "number_twelve",
+            "",
+            "",
+            "",
             "12"
         )
-        quest.add(q1)
+        listQuest.add(questionOne)
 
-        val q2 = QuestData(
+        val questionTwo = QuestData(
             2,
-            "angka_8",
-            "9",
-            "6",
-            "8",
+            "number_eight",
+            "",
+            "",
+            "",
             "8"
         )
-        quest.add(q2)
+        listQuest.add(questionTwo)
 
-        val q3 = QuestData(
+        val questionThree = QuestData(
             3,
-            "angka_5",
-            "6",
-            "5",
-            "8",
+            "number_five",
+            "",
+            "",
+            "",
             "5"
         )
-        quest.add(q3)
+        listQuest.add(questionThree)
 
-        val q4 = QuestData(
+        val questionFour = QuestData(
             4,
-            "angka_29",
-            "28",
-            "29",
-            "79",
+            "number_twenty_nine",
+            "",
+            "",
+            "",
             "29"
         )
-        quest.add(q4)
+        listQuest.add(questionFour)
 
-        val q5 = QuestData(
+        val questionFive = QuestData(
             5,
-            "angka_74",
-            "74",
-            "24",
-            "71",
+            "number_seventy_four",
+            "",
+            "",
+            "",
             "74"
         )
-        quest.add(q5)
+        listQuest.add(questionFive)
 
-        val q6 = QuestData(
+        val questionSix = QuestData(
             6,
-            "angka_7",
-            "1",
-            "2",
-            "7",
+            "number_seven",
+            "",
+            "",
+            "",
             "7"
         )
-        quest.add(q6)
+        listQuest.add(questionSix)
 
-        val q7 = QuestData(
+        val questionSeven = QuestData(
             7,
-            "angka_45",
-            "46",
-            "48",
-            "45",
+            "number_forty_five",
+            "",
+            "",
+            "",
             "45"
         )
-        quest.add(q7)
+        listQuest.add(questionSeven)
 
-        val q8 = QuestData(
+        val questionEight = QuestData(
             8,
-            "angka_2",
-            "5",
-            "7",
-            "2",
+            "number_two",
+            "",
+            "",
+            "",
             "2"
         )
-        quest.add(q8)
+        listQuest.add(questionEight)
 
-        // image 9
-        val q9 = QuestData(
+        val questionNine = QuestData(
             9,
-            "garis3",
-            "garis3_1",
-            "garis3_2",
-            "garis3_3",
-            "garis3_3"
+            "option_one",
+            "option_one_1",
+            "option_one_2",
+            "option_one_3",
+            "option_one_3"
         )
-        quest.add(q9)
-        // ./image 9
+        listQuest.add(questionNine)
 
-        val q10 = QuestData(
+        val questionTen = QuestData(
             10,
-            "angka_16",
-            "18",
-            "16",
-            "76",
+            "number_sixteen",
+            "",
+            "",
+            "",
             "16"
         )
-        quest.add(q10)
+        listQuest.add(questionTen)
 
-        // image 11
-        val q11 = QuestData(
+        val questionEleven = QuestData(
             11,
-            "garis2",
-            "garis2_1",
-            "garis2_2",
-            "garis2_3",
-            "garis2_3"
+            "option_two",
+            "option_two_1",
+            "option_two_2",
+            "option_two_3",
+            "option_two_3"
         )
-        quest.add(q11)
-        // /.image 11
+        listQuest.add(questionEleven)
 
-        val q12 = QuestData(
+        val questionTwelve = QuestData(
             12,
-            "angka_35",
-            "35",
-            "36",
-            "85",
+            "number_thirty_five",
+            "",
+            "",
+            "",
             "35"
         )
-        quest.add(q12)
+        listQuest.add(questionTwelve)
 
-        val q13 = QuestData(
+        val questionThirteen = QuestData(
             13,
-            "angka_96",
-            "95",
-            "85",
-            "96",
+            "number_ninety_six",
+            "",
+            "",
+            "",
             "96"
         )
-        quest.add(q13)
+        listQuest.add(questionThirteen)
 
-        // image 14
-        val q14 = QuestData(
+        val questionFourteen = QuestData(
             14,
-            "garis4",
-            "garis4_1",
-            "garis4_2",
-            "garis4_3",
-            "garis4_1"
+            "option_three",
+            "option_three_1",
+            "option_three_2",
+            "option_three_3",
+            "option_three_1"
         )
-        quest.add(q14)
-        // /.image 14
+        listQuest.add(questionFourteen)
 
-        return quest
+        return listQuest
     }
 }

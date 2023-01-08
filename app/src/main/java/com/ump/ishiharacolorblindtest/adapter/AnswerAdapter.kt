@@ -10,7 +10,7 @@ import com.ump.ishiharacolorblindtest.R
 import com.ump.ishiharacolorblindtest.databinding.ItemJawabanBinding
 import com.ump.ishiharacolorblindtest.model.SavedAnswerData
 
-class JawabanAdapter : RecyclerView.Adapter<JawabanAdapter.ListViewHolder>() {
+class AnswerAdapter : RecyclerView.Adapter<AnswerAdapter.ListViewHolder>() {
     private var savedAnswer = ArrayList<SavedAnswerData>()
     private val number = arrayListOf<Int>()
 

@@ -9,7 +9,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.flexbox.FlexboxLayoutManager
-import com.ump.ishiharacolorblindtest.adapter.JawabanAdapter
+import com.ump.ishiharacolorblindtest.adapter.AnswerAdapter
 import com.ump.ishiharacolorblindtest.databinding.ActivityScoreBinding
 import com.ump.ishiharacolorblindtest.model.SavedAnswerData
 
@@ -40,17 +40,17 @@ class ScoreActivity : AppCompatActivity() {
         }
 
         val listFromActivity1: ArrayList<SavedAnswerData> =
-            intent.getSerializableExtra("TEST_RESULT") as ArrayList<SavedAnswerData>
+            intent.getSerializableExtra(TEST_RESULT) as ArrayList<SavedAnswerData>
 
         Log.d("SavedAnswer: ", listFromActivity1.toString())
 
-        val jawabanAdapter = JawabanAdapter()
+        val answerAdapter = AnswerAdapter()
 
         binding.recylerviewJawaban.apply {
             setHasFixedSize(true)
             layoutManager = FlexboxLayoutManager(context)
-            jawabanAdapter.setData(listFromActivity1)
-            adapter = jawabanAdapter
+            answerAdapter.setData(listFromActivity1)
+            adapter = answerAdapter
         }
 
         // cek kondisi mata
@@ -370,5 +370,9 @@ class ScoreActivity : AppCompatActivity() {
 
         onBackPressed = true
         Handler().postDelayed({ onBackPressed = false }, 2000)
+    }
+
+    companion object {
+        const val TEST_RESULT = "TEST RESULT"
     }
 }

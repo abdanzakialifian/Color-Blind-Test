@@ -4,30 +4,30 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.ActivityInfo
-import android.graphics.Color
-import android.util.Log
 import android.view.View
 import android.view.Window
 import android.view.inputmethod.InputMethodManager
-import android.widget.CompoundButton
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import com.bumptech.glide.Glide
 import com.ump.ishiharacolorblindtest.R
+import com.ump.ishiharacolorblindtest.adapter.MultipleChoiceAdapter
 import com.ump.ishiharacolorblindtest.databinding.ActivityPlatFourteenBinding
 import com.ump.ishiharacolorblindtest.helper.QuestionList
+import com.ump.ishiharacolorblindtest.helper.gone
+import com.ump.ishiharacolorblindtest.helper.visible
 import com.ump.ishiharacolorblindtest.model.QuestData
 import com.ump.ishiharacolorblindtest.model.SavedAnswerData
+import com.ump.ishiharacolorblindtest.view.ScoreActivity.Companion.TEST_RESULT
 
 class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
-    private var questionList: List<QuestData>? = null
-    private var currentPos: Int = 1
-    private var myAnswer: String = ""
+    private lateinit var questionList: List<QuestData>
+    private val savedAnswer = ArrayList<SavedAnswerData>()
+    private var currentPage: Int = 1
     private var currentPoint: Int = 0
-    private var savedAnswer: ArrayList<SavedAnswerData>? = arrayListOf()
-    private var checkedCb: CompoundButton? = null
+    private var myAnswer: String = ""
 
     override fun getViewBinding(): ActivityPlatFourteenBinding =
         ActivityPlatFourteenBinding.inflate(layoutInflater)
@@ -35,7 +35,7 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
     @SuppressLint("SourceLockedOrientationActivity")
     override fun initView() {
         // make fullscreen
-        fullscreen(window, supportActionBar)
+        fullScreen(window, supportActionBar)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         // set screen brightness
@@ -46,262 +46,158 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
         window.attributes = layout
 
         binding.imgBack.setOnClickListener {
-            alertOnBackPressed()
+            alertDialogOnBackPressed()
         }
 
-        // generate question
-        questionList = QuestionList.getAllQuestion()
+        // generate question plate fourteen
+        questionList = QuestionList.getAllQuestionPlateFourteen()
 
         startQuiz()
     }
 
     private fun startQuiz() {
-        val q = questionList!![currentPos - 1]
-        Log.d("asd quest now", "$q")
+        binding.apply {
+            val question = questionList[currentPage - 1]
 
-        // tampilkan posisi halaman
-        binding.progressSoal.text =
-            resources.getString(
-                R.string.halaman_proses,
-                currentPos.toString()
-            )
+            tvPage.text = resources.getString(R.string.page, currentPage.toString())
 
-        // tampilkan soal
-        Glide.with(this)
-            .load(resources.getIdentifier(q.questionImage, "drawable", packageName))
-            .into(binding.imageView8) // imageView mana yang akan diterapkan
+            Glide.with(this@PlateFourteenActivity)
+                .load(resources.getIdentifier(question.questionImage, "drawable", packageName))
+                .into(imgQuiz)
 
-        if (q.questionImage.substring(0, 5) == "angka") {
-            binding.textField.visibility = View.VISIBLE
-            binding.radioImageGroup.visibility = View.GONE
-
-            binding.perintahSoal.text = resources.getString(R.string.text_for_essay)
-
-            // soal skrng adalah angka, maka tampilkan text input untuk jawaban essay
-            binding.textFieldEditText.apply {
-                this.transformationMethod = null
-                this.addTextChangedListener {
-                    // change submit button
-                    myAnswer = it.toString()
-                    if (it.toString().isNotEmpty())
-                        btnEnable(true)
-                    else
-                        btnEnable(false)
-                }
+            if (currentPage == questionList.size) {
+                btnSubmit.text = resources.getString(R.string.finished)
             }
 
-            binding.parent.setOnClickListener {
-                hideKeyboard(it)
-            }
-        } else {
-            binding.textField.visibility = View.GONE
-            binding.radioImageGroup.visibility = View.VISIBLE
+            if (question.questionImage.substring(0, 6) == NUMBER) {
+                edtField.visible()
+                rvMultipleChoice.gone()
 
-            when (currentPos) {
-                11 -> binding.perintahSoal.text = resources.getString(
-                    R.string.text_for_multiple_choice,
-                    resources.getString(R.string.text_mc_11)
-                )
-                14 -> binding.perintahSoal.text =
-                    "Ikuti garis dari X ke X pada pelat, cocokan dengan gambar yang ada dibawah"
-                else -> binding.perintahSoal.text = resources.getString(R.string.text_for_essay)
-            }
-            // soal skrng adalah garis, tampilkan pilihan ganda
+                tvQuestion.text = resources.getString(R.string.text_for_essay)
 
-            val answerOptions = arrayListOf(q.opt1, q.opt2, q.opt3)
-
-            binding.imgOption1.apply {
-                setImageResource(
-                    resources.getIdentifier(
-                        answerOptions[0], "drawable", packageName
-                    )
-                )
-                setOnClickListener {
-                    binding.checkbox1.isChecked = true
-                    binding.checkbox2.isChecked = false
-                    binding.checkbox3.isChecked = false
-                }
-            }
-            binding.imgOption2.apply {
-                setImageResource(
-                    resources.getIdentifier(
-                        answerOptions[1], "drawable", packageName
-                    )
-                )
-                setOnClickListener {
-                    binding.checkbox1.isChecked = false
-                    binding.checkbox2.isChecked = true
-                    binding.checkbox3.isChecked = false
-                }
-            }
-            binding.imgOption3.apply {
-                setImageResource(
-                    resources.getIdentifier(
-                        answerOptions[2], "drawable", packageName
-                    )
-                )
-                setOnClickListener {
-                    binding.checkbox1.isChecked = false
-                    binding.checkbox2.isChecked = false
-                    binding.checkbox3.isChecked = true
-                }
-            }
-
-            binding.checkbox1.apply {
-                text = answerOptions[0]
-                setOnCheckedChangeListener { compoundButton, ischecked ->
-                    if (ischecked) {
-                        myAnswer = compoundButton.text as String
-                        checkedCb = compoundButton
-                        this@PlateFourteenActivity.changeCbView(1)
-                        btnEnable(true)
+                edtField.apply {
+                    addTextChangedListener {
+                        myAnswer = it.toString()
+                        if (it.toString().isNotEmpty())
+                            stateButton(true)
+                        else
+                            stateButton(false)
                     }
                 }
-            }
-            binding.checkbox2.apply {
-                text = answerOptions[1]
-                setOnCheckedChangeListener { compoundButton, ischecked ->
-                    if (ischecked) {
-                        myAnswer = compoundButton.text as String
-                        checkedCb = compoundButton
-                        this@PlateFourteenActivity.changeCbView(2)
-                        btnEnable(true)
-                    }
+
+                layoutParent.setOnClickListener {
+                    hideKeyboard(it)
                 }
-            }
-            binding.checkbox3.apply {
-                text = answerOptions[2]
-                setOnCheckedChangeListener { compoundButton, ischecked ->
-                    if (ischecked) {
-                        myAnswer = compoundButton.text as String
-                        checkedCb = compoundButton
-                        this@PlateFourteenActivity.changeCbView(3)
-                        btnEnable(true)
-                    }
-                }
-            }
-        }
-
-        if (currentPos == questionList!!.size) {
-            binding.submitButtton.text = "Selesai"
-        }
-
-        binding.submitButtton.setOnClickListener {
-            // save answer
-            saveAnswer(q.id.toString(), q.questionImage, myAnswer, q.correctAns)
-
-            // disable input and button after click
-            btnEnable(false)
-
-            binding.textFieldEditText.isEnabled = false
-
-            if (myAnswer == q.correctAns) {
-                // add the point
-                currentPoint++
             } else {
+                edtField.gone()
+                rvMultipleChoice.visible()
+
+                when (currentPage) {
+                    11 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.text_mc_11)
+                    )
+                    14 -> tvQuestion.text =
+                        resources.getString(R.string.text_for_multiple_choice_line)
+                    else -> tvQuestion.text = resources.getString(R.string.text_for_essay)
+                }
+
+                val listQuestionChoice = arrayListOf(question.opt1, question.opt2, question.opt3)
+
+                val adapter = MultipleChoiceAdapter()
+                adapter.setListMultipleChoice(listQuestionChoice)
+                adapter.setOnItemClickCallback(object : MultipleChoiceAdapter.OnItemClickCallback {
+                    override fun onItemClicked(answer: String) {
+                        myAnswer = answer
+                        stateButton(true)
+                    }
+                })
+                rvMultipleChoice.adapter = adapter
+                rvMultipleChoice.setHasFixedSize(true)
             }
-            nextQuestion()
+
+            btnSubmit.setOnClickListener {
+                // save answer to list
+                savedAnswer.add(
+                    SavedAnswerData(
+                        question.id.toString(),
+                        question.questionImage,
+                        myAnswer,
+                        question.correctAnswer
+                    )
+                )
+
+                // disable input and button after click
+                stateButton(false)
+
+                if (myAnswer == question.correctAnswer) {
+                    // add the point
+                    currentPoint++
+                }
+
+                nextQuestion()
+            }
         }
     }
 
     private fun nextQuestion() {
         // change the question
-        currentPos++
+        currentPage++
 
-        when {
-            currentPos <= questionList!!.size -> {
-                // going to then next question and clear the text field
-
-                // cek soal pilihan ganda atau essay
-                binding.textFieldEditText.apply {
-                    text?.clear()
-                    isEnabled = true
-                }
-
-                if (checkedCb?.isChecked == true) {
-                    this@PlateFourteenActivity.changeCbView(null)
-                }
-
-                checkedCb?.isChecked = false
-
-                startQuiz()
+        if (currentPage <= questionList.size) {
+            binding.edtField.apply {
+                text?.clear()
+                isEnabled = true
             }
-            else -> {
-                Intent(this, ScoreActivity::class.java).apply {
-                    this.putExtra("TEST_RESULT", savedAnswer)
-                    startActivity(this)
-                }
-                finish()
+            startQuiz()
+        } else {
+            Intent(this, ScoreActivity::class.java).apply {
+                this.putExtra(TEST_RESULT, savedAnswer)
+                startActivity(this)
             }
+            finish()
         }
         myAnswer = ""
     }
 
-    private fun saveAnswer(
-        questionNumber: String,
-        question: String,
-        myAnswer: String,
-        correctAns: String
-    ) {
-        savedAnswer?.add(
-            SavedAnswerData(
-                questionNumber,
-                question,
-                myAnswer,
-                correctAns
-            )
-        )
-    }
-
-    @SuppressLint("UseCompatLoadingForColorStateLists")
-    private fun btnEnable(state: Boolean) {
-        when {
-            // ubah menjadi enable
-            state -> {
-                binding.submitButtton.apply {
-                    isEnabled = true
-                    backgroundTintList =
-                        ContextCompat.getColorStateList(
-                            this@PlateFourteenActivity,
-                            R.color.blue_700
-                        )
-                    setTextColor(Color.parseColor("#FFFFFF"))
-                }
+    private fun stateButton(state: Boolean) {
+        if (state) {
+            binding.btnSubmit.apply {
+                isEnabled = true
+                backgroundTintList =
+                    ContextCompat.getColorStateList(
+                        this@PlateFourteenActivity,
+                        R.color.blue_700
+                    )
+                setTextColor(ContextCompat.getColor(this@PlateFourteenActivity, R.color.white))
             }
-            // ubah menjadi disable
-            else -> {
-                binding.submitButtton.apply {
-                    isEnabled = false
-                    backgroundTintList =
-                        ContextCompat.getColorStateList(this@PlateFourteenActivity, R.color.white)
-                    setTextColor(Color.parseColor("#37A3FE"))
-                }
+        } else {
+            binding.btnSubmit.apply {
+                isEnabled = false
+                backgroundTintList =
+                    ContextCompat.getColorStateList(this@PlateFourteenActivity, R.color.white)
+                setTextColor(ContextCompat.getColor(this@PlateFourteenActivity, R.color.blue_700))
             }
         }
     }
 
-    //    KEPENTINGAN CUMA SAMPE INI.
     private fun hideKeyboard(view: View) {
         val inputMethodManager: InputMethodManager =
             getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
-    override fun onBackPressed() {
-        alertOnBackPressed()
-    }
-
-    private fun alertOnBackPressed() {
+    private fun alertDialogOnBackPressed() {
         val dialog = AlertDialog.Builder(this)
-            .setTitle("Kembali ke menu utama?")
-            .setMessage("Sesi ini akan dihapus jika anda keluar sekarang.")
-            .setNegativeButton("Batal") { dialog, _ ->
-                fullscreen(window, supportActionBar)
+            .setTitle(resources.getString(R.string.back_to_main_menu))
+            .setMessage(resources.getString(R.string.deleted_sesi_information))
+            .setNegativeButton(resources.getString(R.string.cancel)) { dialog, _ ->
+                fullScreen(window, supportActionBar)
                 dialog.cancel()
             }
-            .setOnCancelListener { fullscreen(window, supportActionBar) }
-            .setPositiveButton("Ok") { _, _ ->
-                fullscreen(window, supportActionBar)
+            .setOnCancelListener { fullScreen(window, supportActionBar) }
+            .setPositiveButton(resources.getString(R.string.ok)) { _, _ ->
+                fullScreen(window, supportActionBar)
                 startActivity(Intent(this, HomeActivity::class.java))
                 finish()
             }.create()
@@ -317,26 +213,8 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
         dialog.show()
     }
 
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-        Log.d("Focus debug", "Focus changed !")
-        if (!hasFocus) {
-            Log.d("Focus debug", "Lost focus !")
-            binding.lostFocus.visibility = View.VISIBLE
-            binding.submitButtton.visibility = View.GONE
-        } else {
-            binding.lostFocus.visibility = View.GONE
-            binding.submitButtton.visibility = View.VISIBLE
-        }
-    }
-
-    override fun onPause() {
-        super.onPause()
-        binding.lostFocus.visibility = View.VISIBLE
-        binding.submitButtton.visibility = View.GONE
-    }
-
-    private fun fullscreen(window: Window, supportActionBar: ActionBar?) {
+    @Suppress("DEPRECATION")
+    private fun fullScreen(window: Window, supportActionBar: ActionBar?) {
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
@@ -348,107 +226,24 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 
-    private fun changeCbView(opt: Int? = null) {
-        binding.textOption1.setTextColor(ContextCompat.getColorStateList(this, R.color.white))
-        when (opt) {
-            1 -> {
-                binding.textOption2.setTextColor(
-                    ContextCompat.getColorStateList(
-                        this,
-                        R.color.black
-                    )
-                )
-                binding.textOption3.setTextColor(
-                    ContextCompat.getColorStateList(
-                        this,
-                        R.color.black
-                    )
-                )
-                binding.wrapCb1.backgroundTintList =
-                    ContextCompat.getColorStateList(this, R.color.blue_700)
-                binding.wrapCb2.backgroundTintList =
-                    ContextCompat.getColorStateList(this, R.color.white)
-                binding.wrapCb3.backgroundTintList =
-                    ContextCompat.getColorStateList(this, R.color.white)
-            }
-            2 -> {
-                binding.textOption1.setTextColor(
-                    ContextCompat.getColorStateList(
-                        this,
-                        R.color.black
-                    )
-                )
-                binding.textOption2.setTextColor(
-                    ContextCompat.getColorStateList(
-                        this,
-                        R.color.white
-                    )
-                )
-                binding.textOption3.setTextColor(
-                    ContextCompat.getColorStateList(
-                        this,
-                        R.color.black
-                    )
-                )
-                binding.wrapCb1.backgroundTintList =
-                    ContextCompat.getColorStateList(this, R.color.white)
-                binding.wrapCb2.backgroundTintList =
-                    ContextCompat.getColorStateList(this, R.color.blue_700)
-                binding.wrapCb3.backgroundTintList =
-                    ContextCompat.getColorStateList(this, R.color.white)
-            }
-            3 -> {
-                binding.textOption1.setTextColor(
-                    ContextCompat.getColorStateList(
-                        this,
-                        R.color.black
-                    )
-                )
-                binding.textOption2.setTextColor(
-                    ContextCompat.getColorStateList(
-                        this,
-                        R.color.black
-                    )
-                )
-                binding.textOption3.setTextColor(
-                    ContextCompat.getColorStateList(
-                        this,
-                        R.color.white
-                    )
-                )
-                binding.wrapCb1.backgroundTintList =
-                    ContextCompat.getColorStateList(this, R.color.white)
-                binding.wrapCb2.backgroundTintList =
-                    ContextCompat.getColorStateList(this, R.color.white)
-                binding.wrapCb3.backgroundTintList =
-                    ContextCompat.getColorStateList(this, R.color.blue_700)
-            }
-            else -> {
-                binding.textOption1.setTextColor(
-                    ContextCompat.getColorStateList(
-                        this,
-                        R.color.black
-                    )
-                )
-                binding.textOption2.setTextColor(
-                    ContextCompat.getColorStateList(
-                        this,
-                        R.color.black
-                    )
-                )
-                binding.textOption3.setTextColor(
-                    ContextCompat.getColorStateList(
-                        this,
-                        R.color.black
-                    )
-                )
-                binding.wrapCb1.backgroundTintList =
-                    ContextCompat.getColorStateList(this, R.color.white)
-                binding.wrapCb2.backgroundTintList =
-                    ContextCompat.getColorStateList(this, R.color.white)
-                binding.wrapCb3.backgroundTintList =
-                    ContextCompat.getColorStateList(this, R.color.white)
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        binding.apply {
+            if (!hasFocus) {
+                layoutQuiz.gone()
+                layoutLostFocus.visible()
+            } else {
+                layoutQuiz.visible()
+                layoutLostFocus.gone()
             }
         }
+    }
+
+    override fun onBackPressed() {
+        alertDialogOnBackPressed()
+    }
+
+    companion object {
+        private const val NUMBER = "number"
     }
 }
