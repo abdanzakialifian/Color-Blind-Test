@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/paper_color"
-    tools:context=".view.PlateFourteenActivity">
+    tools:context=".view.PlateThirtyEightActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_question"
@@ -101,17 +101,19 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/img_question"
-                    android:layout_width="400dp"
-                    android:layout_height="400dp"
+                    android:layout_width="350dp"
+                    android:layout_height="350dp"
+                    android:layout_marginTop="25dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_question"
-                    app:srcCompat="@drawable/number_seventy_four_plate_14" />
+                    app:srcCompat="@drawable/number_seven_plate_24" />
 
                 <LinearLayout
                     android:id="@+id/layout_bottom"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginTop="25dp"
                     android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

@@ -20,12 +20,18 @@ class HomeActivity : BaseVBActivity<ActivityHomeBinding>() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
-        binding.cvAboutIshihara.setOnClickListener {
-            startActivity(Intent(this, AboutIshiharaActivity::class.java))
-        }
+        binding.apply {
+            cvAboutIshihara.setOnClickListener {
+                startActivity(Intent(this@HomeActivity, AboutIshiharaActivity::class.java))
+            }
 
-        binding.cvColorBlintTestOne.setOnClickListener {
-            startActivity(Intent(this, PlateFourteenActivity::class.java))
+            cvColorBlintTestOne.setOnClickListener {
+                startActivity(Intent(this@HomeActivity, PlateFourteenActivity::class.java))
+            }
+
+            cvColorBlintTestTwo.setOnClickListener {
+                startActivity(Intent(this@HomeActivity, PlateTwentyFourActivity::class.java))
+            }
         }
     }
 
