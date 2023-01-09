@@ -282,6 +282,125 @@ object QuestionList {
         )
         listQuestion.add(questionThirteen)
 
+        // TODO Belum lengkap
+        val questionFourteen = QuestionData(
+            id = 14,
+            image = "option_one_plate_24",
+            optionOne = "",
+            optionTwo = "",
+            optionThree = "",
+            correctAnswer = ""
+        )
+        listQuestion.add(questionFourteen)
+
+        // TODO Belum lengkap
+        val questionFifteen = QuestionData(
+            id = 15,
+            image = "option_two_plate_24",
+            optionOne = "",
+            optionTwo = "",
+            optionThree = "",
+            correctAnswer = ""
+        )
+        listQuestion.add(questionFifteen)
+
+        val questionSixteen = QuestionData(
+            id = 16,
+            image = "number_twenty_six_plate_24",
+            optionOne = "",
+            optionTwo = "",
+            optionThree = "",
+            correctAnswer = "26"
+        )
+        listQuestion.add(questionSixteen)
+
+        val questionSeventeen = QuestionData(
+            id = 17,
+            image = "number_forty_two_plate_24",
+            optionOne = "",
+            optionTwo = "",
+            optionThree = "",
+            correctAnswer = "42"
+        )
+        listQuestion.add(questionSeventeen)
+
+        // TODO Belum lengkap
+        val questionEighteen = QuestionData(
+            id = 18,
+            image = "option_three_plate_24",
+            optionOne = "",
+            optionTwo = "",
+            optionThree = "",
+            correctAnswer = ""
+        )
+        listQuestion.add(questionEighteen)
+
+        // TODO Belum lengkap
+        val questionNineteen = QuestionData(
+            id = 19,
+            image = "option_four_plate_24",
+            optionOne = "",
+            optionTwo = "",
+            optionThree = "",
+            correctAnswer = ""
+        )
+        listQuestion.add(questionNineteen)
+
+        // TODO Belum lengkap
+        val questionTwenty = QuestionData(
+            id = 20,
+            image = "option_five_plate_24",
+            optionOne = "",
+            optionTwo = "",
+            optionThree = "",
+            correctAnswer = ""
+        )
+        listQuestion.add(questionTwenty)
+
+        // TODO Belum lengkap
+        val questionTwentyOne = QuestionData(
+            id = 21,
+            image = "option_six_plate_24",
+            optionOne = "",
+            optionTwo = "",
+            optionThree = "",
+            correctAnswer = ""
+        )
+        listQuestion.add(questionTwentyOne)
+
+        // TODO Belum lengkap
+        val questionTwentyTwo = QuestionData(
+            id = 22,
+            image = "option_seven_plate_24",
+            optionOne = "",
+            optionTwo = "",
+            optionThree = "",
+            correctAnswer = ""
+        )
+        listQuestion.add(questionTwentyTwo)
+
+        // TODO Belum lengkap
+        val questionTwentyThree = QuestionData(
+            id = 23,
+            image = "option_eight_plate_24",
+            optionOne = "",
+            optionTwo = "",
+            optionThree = "",
+            correctAnswer = ""
+        )
+        listQuestion.add(questionTwentyThree)
+
+        // TODO Belum lengkap
+        val questionTwentyFour = QuestionData(
+            id = 24,
+            image = "option_nine_plate_24",
+            optionOne = "",
+            optionTwo = "",
+            optionThree = "",
+            correctAnswer = ""
+        )
+        listQuestion.add(questionTwentyFour)
+
         return listQuestion
     }
 }

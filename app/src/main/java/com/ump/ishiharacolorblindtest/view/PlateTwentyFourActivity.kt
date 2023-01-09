@@ -68,7 +68,7 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
                 btnSubmit.text = resources.getString(R.string.finished)
             }
 
-            if (question.id in 1..8 || question.id == 10 || question.id in 12..13) {
+            if (question.id in 1..13 || question.id in 16..17) {
                 edtField.visible()
                 rvMultipleChoice.gone()
 
