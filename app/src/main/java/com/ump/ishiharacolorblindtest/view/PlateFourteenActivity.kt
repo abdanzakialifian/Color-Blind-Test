@@ -75,14 +75,12 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
 
                 tvQuestion.text = resources.getString(R.string.text_for_essay)
 
-                edtField.apply {
-                    addTextChangedListener {
-                        myAnswer = it.toString()
-                        if (it.toString().isNotEmpty())
-                            stateButton(true)
-                        else
-                            stateButton(false)
-                    }
+                edtField.addTextChangedListener {
+                    myAnswer = it.toString()
+                    if (it.toString().isNotEmpty())
+                        stateButton(true)
+                    else
+                        stateButton(false)
                 }
 
                 layoutParent.setOnClickListener {

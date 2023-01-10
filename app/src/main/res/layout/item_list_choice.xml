@@ -1,28 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginEnd="10dp"
-    android:id="@+id/layout_choice"
-    android:background="@drawable/bg_white_rounded_10"
-    android:orientation="vertical">
+    app:cardCornerRadius="10dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/img_choice"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:padding="10dp"
-        android:src="@drawable/option_one_2_plate_14" />
-
-    <TextView
-        android:id="@+id/tv_choice"
+    <LinearLayout
+        android:id="@+id/layout_choice"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nsemibold"
-        android:gravity="center"
-        android:paddingVertical="3dp"
-        android:text="@string/text_pilihan_1"
-        android:textAlignment="center"
-        android:textColor="@color/black" />
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_choice"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:padding="10dp"
+            android:src="@drawable/plate_14_9_option_2" />
+
+        <TextView
+            android:id="@+id/tv_choice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nsemibold"
+            android:gravity="center"
+            android:paddingVertical="3dp"
+            android:text="@string/text_pilihan_1"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

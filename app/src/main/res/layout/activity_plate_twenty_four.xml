@@ -5,7 +5,7 @@
     android:id="@+id/layout_parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/paper_color"
+    android:background="@color/white"
     tools:context=".view.PlateTwentyFourActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +21,7 @@
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/paper_color"
+            android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -107,7 +107,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_question"
-                    app:srcCompat="@drawable/number_seven_plate_24" />
+                    app:srcCompat="@drawable/plate_24_1" />
 
                 <LinearLayout
                     android:id="@+id/layout_bottom"

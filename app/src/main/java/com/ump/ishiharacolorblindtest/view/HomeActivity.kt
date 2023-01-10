@@ -32,6 +32,10 @@ class HomeActivity : BaseVBActivity<ActivityHomeBinding>() {
             cvColorBlintTestTwo.setOnClickListener {
                 startActivity(Intent(this@HomeActivity, PlateTwentyFourActivity::class.java))
             }
+
+            cvColorBlintTestThree.setOnClickListener {
+                startActivity(Intent(this@HomeActivity, PlateThirtyEightActivity::class.java))
+            }
         }
     }
 

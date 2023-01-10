@@ -5,7 +5,7 @@
     android:id="@+id/layout_parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/paper_color"
+    android:background="@color/white"
     tools:context=".view.PlateFourteenActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +21,7 @@
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/paper_color"
+            android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -106,7 +106,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_question"
-                    app:srcCompat="@drawable/number_seventy_four_plate_14" />
+                    app:srcCompat="@drawable/plate_14_5" />
 
                 <LinearLayout
                     android:id="@+id/layout_bottom"
@@ -119,6 +119,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/edt_answer"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:clickable="true"
@@ -130,8 +131,8 @@
                         app:boxCornerRadiusBottomStart="10dp"
                         app:boxCornerRadiusTopEnd="10dp"
                         app:boxCornerRadiusTopStart="10dp"
-                        app:boxStrokeWidth="0dp"
-                        app:boxStrokeWidthFocused="0dp"
+                        app:boxStrokeColor="@color/blue_700"
+                        app:boxStrokeWidth="1dp"
                         app:hintTextColor="@color/blue_700">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -166,13 +167,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_weight="3"
-                    android:background="@drawable/bg_white_rounded_10"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:enabled="false"
                     android:fontFamily="@font/nbold"
                     android:text="@string/next_page"
                     android:textAllCaps="false"
-                    android:textColor="@color/blue_700"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />

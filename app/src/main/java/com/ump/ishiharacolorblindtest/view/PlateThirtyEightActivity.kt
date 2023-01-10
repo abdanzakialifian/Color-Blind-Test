@@ -49,7 +49,7 @@ class PlateThirtyEightActivity : BaseVBActivity<ActivityPlateThirtyEightBinding>
         }
 
         // generate question plate fourteen
-        questionList = QuestionList.getAllQuestionTwentyFour()
+        questionList = QuestionList.getAllQuestionThirtyEight()
 
         startQuiz()
     }
@@ -68,20 +68,18 @@ class PlateThirtyEightActivity : BaseVBActivity<ActivityPlateThirtyEightBinding>
                 btnSubmit.text = resources.getString(R.string.finished)
             }
 
-            if (question.id in 1..8 || question.id == 10 || question.id in 12..13) {
+            if (question.id in 1..13) {
                 edtField.visible()
                 rvMultipleChoice.gone()
 
                 tvQuestion.text = resources.getString(R.string.text_for_essay)
 
-                edtField.apply {
-                    addTextChangedListener {
-                        myAnswer = it.toString()
-                        if (it.toString().isNotEmpty())
-                            stateButton(true)
-                        else
-                            stateButton(false)
-                    }
+                edtField.addTextChangedListener {
+                    myAnswer = it.toString()
+                    if (it.toString().isNotEmpty())
+                        stateButton(true)
+                    else
+                        stateButton(false)
                 }
 
                 layoutParent.setOnClickListener {
