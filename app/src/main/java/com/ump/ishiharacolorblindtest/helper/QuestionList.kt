@@ -61,40 +61,74 @@ object QuestionList {
     fun getAllQuestionTwentyFour(): ArrayList<QuestionData> {
         val listQuestion: ArrayList<QuestionData> = arrayListOf()
 
-        val correctAnswer = arrayListOf(
-            "12",
-            "8",
-            "29",
-            "5",
-            "3",
-            "15",
-            "74",
-            "6",
-            "45",
-            "5",
-            "7",
-            "16",
-            "73",
-            "",
-            "",
-            "26",
-            "42",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-        )
-
         for (i in 1..24) {
+            val correctAnswer = arrayListOf(
+                "12",
+                "8",
+                "29",
+                "5",
+                "3",
+                "15",
+                "74",
+                "6",
+                "45",
+                "5",
+                "7",
+                "16",
+                "73",
+                "",
+                "",
+                "26",
+                "42",
+                "plate_24_18_option_1",
+                "",
+                "plate_24_20_option_3",
+                "plate_24_21_option_2",
+                "plate_24_22_option_1",
+                "plate_24_23_option_1",
+                "plate_24_24_option_1"
+            )
+            val optionOneName = "plate_24_${i}_option_1"
+            val optionOne = when(i) {
+                14 -> ""
+                15 -> ""
+                18 -> optionOneName
+                19 -> ""
+                20-> optionOneName
+                21 -> optionOneName
+                22 -> optionOneName
+                23 -> optionOneName
+                24 -> optionOneName
+                else -> ""
+            }
+            val optionTwoName = "plate_24_${i}_option_2"
+            val optionTwo = when(i) {
+                14 -> ""
+                15 -> ""
+                18 -> optionTwoName
+                19 -> ""
+                20-> optionTwoName
+                21 -> optionTwoName
+                22 -> optionTwoName
+                23 -> optionTwoName
+                24 -> optionTwoName
+                else -> ""
+            }
+            val optionThreeName = "plate_24_${i}_option_3"
+            val optionThree = when(i) {
+                14 -> ""
+                15 -> ""
+                18 -> optionThreeName
+                19 -> ""
+                20-> optionThreeName
+                else -> ""
+            }
             val question = QuestionData(
                 id = i,
                 image = "plate_24_$i",
-                optionOne = "",
-                optionTwo = "",
-                optionThree = "",
+                optionOne = optionOne,
+                optionTwo = optionTwo,
+                optionThree = optionThree,
                 correctAnswer = correctAnswer[i - 1]
             )
             listQuestion.add(question)

@@ -90,17 +90,46 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
                 rvMultipleChoice.visible()
 
                 when (currentPage) {
-                    11 -> tvQuestion.text = resources.getString(
+                    14 -> tvQuestion.text = resources.getString(
                         R.string.text_for_multiple_choice,
-                        resources.getString(R.string.text_mc_11)
-                    )
-                    14 -> tvQuestion.text =
-                        resources.getString(R.string.text_for_multiple_choice_line)
+                        resources.getString(R.string.color_red))
+                    15 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_red))
+                    18 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_red_or_purple))
+                    19 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_red))
+                    20 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_green))
+                    21 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_red))
+                    22 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_green))
+                    23 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_red_or_purple))
+                    24 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_orange))
                     else -> tvQuestion.text = resources.getString(R.string.text_for_essay)
                 }
 
-                val listQuestionChoice =
-                    arrayListOf(question.optionOne, question.optionTwo, question.optionThree)
+                val listQuestionChoice = ArrayList<String>()
+                if (question.optionOne != "") {
+                    listQuestionChoice.add(question.optionOne)
+                }
+                if (question.optionTwo != "") {
+                    listQuestionChoice.add(question.optionTwo)
+                }
+                if (question.optionThree != "") {
+                    listQuestionChoice.add(question.optionThree)
+                }
 
                 val adapter = MultipleChoiceAdapter()
                 adapter.setListMultipleChoice(listQuestionChoice)

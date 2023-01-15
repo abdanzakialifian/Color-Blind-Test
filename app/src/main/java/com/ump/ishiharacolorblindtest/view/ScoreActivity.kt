@@ -63,7 +63,7 @@ class ScoreActivity : AppCompatActivity() {
         val answerList = arrayListOf<String>()
 
         for ((i, v) in listFromActivity1.withIndex()) {
-            answerList.add(i, v.answer.toString())
+            answerList.add(i, v.answer)
         }
 
         Log.i("SavedAnswerList", answerList.toString())

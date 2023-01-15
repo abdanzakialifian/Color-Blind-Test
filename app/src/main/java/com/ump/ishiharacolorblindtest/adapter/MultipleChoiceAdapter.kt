@@ -2,7 +2,6 @@ package com.ump.ishiharacolorblindtest.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.ump.ishiharacolorblindtest.R
 import com.ump.ishiharacolorblindtest.databinding.ItemListChoiceBinding
@@ -45,18 +44,9 @@ class MultipleChoiceAdapter :
                 }
 
                 if (selectedItemPosition == positions) {
-//                    layoutChoice.setBackgroundColor(
-//                        ContextCompat.getColor(
-//                            itemView.context,
-//                            R.color.blue_700
-//                        )
-//                    )
                     layoutChoice.setBackgroundResource(R.color.blue_700)
                     tvChoice.textColorWhite(itemView.context)
                 } else {
-//                    layoutChoice.setBackgroundColor(
-//                        ContextCompat.getColor(itemView.context, R.color.white)
-//                    )
                     layoutChoice.setBackgroundResource(R.color.white)
                     tvChoice.textColorBlack(itemView.context)
                 }

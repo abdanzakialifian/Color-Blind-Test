@@ -93,7 +93,7 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
                 when (currentPage) {
                     11 -> tvQuestion.text = resources.getString(
                         R.string.text_for_multiple_choice,
-                        resources.getString(R.string.text_mc_11)
+                        resources.getString(R.string.color_green)
                     )
                     14 -> tvQuestion.text =
                         resources.getString(R.string.text_for_multiple_choice_line)

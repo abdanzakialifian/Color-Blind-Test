@@ -15,26 +15,12 @@ fun View.gone() {
     this.visibility = View.GONE
 }
 
-fun LinearLayout.blueBackgroundRound10(context: Context) {
-    this.background = ContextCompat.getDrawable(
-        context,
-        R.drawable.bg_blue_rounded_10
-    )
-}
-
 fun TextView.textColorWhite(context: Context) {
     this.setTextColor(
         ContextCompat.getColor(
             context,
             R.color.white
         )
-    )
-}
-
-fun LinearLayout.whiteBackgroundRound10(context: Context) {
-    this.background = ContextCompat.getDrawable(
-        context,
-        R.drawable.bg_white_rounded_10
     )
 }
 
