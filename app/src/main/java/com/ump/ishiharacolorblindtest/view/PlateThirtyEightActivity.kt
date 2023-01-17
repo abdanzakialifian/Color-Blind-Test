@@ -68,7 +68,7 @@ class PlateThirtyEightActivity : BaseVBActivity<ActivityPlateThirtyEightBinding>
                 btnSubmit.text = resources.getString(R.string.finished)
             }
 
-            if (question.id in 1..13) {
+            if (question.id in 1..17 || question.id in 22..25) {
                 edtField.visible()
                 rvMultipleChoice.gone()
 
@@ -90,17 +90,87 @@ class PlateThirtyEightActivity : BaseVBActivity<ActivityPlateThirtyEightBinding>
                 rvMultipleChoice.visible()
 
                 when (currentPage) {
-                    11 -> tvQuestion.text = resources.getString(
+                    18 -> tvQuestion.text = resources.getString(
                         R.string.text_for_multiple_choice,
-                        resources.getString(R.string.text_mc_11)
+                        resources.getString(R.string.color_red)
                     )
-                    14 -> tvQuestion.text =
-                        resources.getString(R.string.text_for_multiple_choice_line)
+                    19 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_red)
+                    )
+                    20 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_red)
+                    )
+                    21 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_red)
+                    )
+                    26 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_red_or_purple)
+                    )
+                    27 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_red_or_purple)
+                    )
+                    28 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_red)
+                    )
+                    29 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_red)
+                    )
+                    30 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_green)
+                    )
+                    31 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_green)
+                    )
+                    32 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_orange)
+                    )
+                    33 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_orange)
+                    )
+                    34 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_green)
+                    )
+                    35 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_green)
+                    )
+                    36 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_orange)
+                    )
+                    37 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_orange)
+                    )
+                    38 -> tvQuestion.text = resources.getString(
+                        R.string.text_for_multiple_choice,
+                        resources.getString(R.string.color_orange)
+                    )
                     else -> tvQuestion.text = resources.getString(R.string.text_for_essay)
                 }
 
-                val listQuestionChoice =
-                    arrayListOf(question.optionOne, question.optionTwo, question.optionThree)
+                val listQuestionChoice = ArrayList<String>()
+                if (question.optionOne != "") {
+                    listQuestionChoice.add(question.optionOne)
+                }
+                if (question.optionTwo != "") {
+                    listQuestionChoice.add(question.optionTwo)
+                }
+                if (question.optionThree != "") {
+                    listQuestionChoice.add(question.optionThree)
+                }
 
                 val adapter = MultipleChoiceAdapter()
                 adapter.setListMultipleChoice(listQuestionChoice)
@@ -159,24 +229,7 @@ class PlateThirtyEightActivity : BaseVBActivity<ActivityPlateThirtyEightBinding>
     }
 
     private fun stateButton(state: Boolean) {
-        if (state) {
-            binding.btnSubmit.apply {
-                isEnabled = true
-                backgroundTintList =
-                    ContextCompat.getColorStateList(
-                        this@PlateThirtyEightActivity,
-                        R.color.blue_700
-                    )
-                setTextColor(ContextCompat.getColor(this@PlateThirtyEightActivity, R.color.white))
-            }
-        } else {
-            binding.btnSubmit.apply {
-                isEnabled = false
-                backgroundTintList =
-                    ContextCompat.getColorStateList(this@PlateThirtyEightActivity, R.color.white)
-                setTextColor(ContextCompat.getColor(this@PlateThirtyEightActivity, R.color.blue_700))
-            }
-        }
+        binding.btnSubmit.isEnabled = state
     }
 
     private fun hideKeyboard(view: View) {

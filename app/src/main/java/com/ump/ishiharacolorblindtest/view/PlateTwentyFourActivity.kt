@@ -107,7 +107,7 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
                         resources.getString(R.string.color_green))
                     21 -> tvQuestion.text = resources.getString(
                         R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_red))
+                        resources.getString(R.string.color_orange))
                     22 -> tvQuestion.text = resources.getString(
                         R.string.text_for_multiple_choice,
                         resources.getString(R.string.color_green))
@@ -188,24 +188,7 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
     }
 
     private fun stateButton(state: Boolean) {
-        if (state) {
-            binding.btnSubmit.apply {
-                isEnabled = true
-                backgroundTintList =
-                    ContextCompat.getColorStateList(
-                        this@PlateTwentyFourActivity,
-                        R.color.blue_700
-                    )
-                setTextColor(ContextCompat.getColor(this@PlateTwentyFourActivity, R.color.white))
-            }
-        } else {
-            binding.btnSubmit.apply {
-                isEnabled = false
-                backgroundTintList =
-                    ContextCompat.getColorStateList(this@PlateTwentyFourActivity, R.color.white)
-                setTextColor(ContextCompat.getColor(this@PlateTwentyFourActivity, R.color.blue_700))
-            }
-        }
+        binding.btnSubmit.isEnabled = state
     }
 
     private fun hideKeyboard(view: View) {

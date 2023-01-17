@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Tes buta warna (Metode Ishihara)</string>
+    <string name="app_name">Tes Buta Warna</string>
     <string name="page">Halaman %s</string>
     <string name="plate_fourteen">14 Pelat</string>
     <string name="plate_twenty_four">24 Pelat</string>
@@ -44,4 +44,7 @@
     <string name="deleted_sesi_information">Sesi ini akan dihapus jika anda keluar sekarang.</string>
     <string name="cancel">Batal</string>
     <string name="ok" tools:ignore="ButtonCase,Typos">Ok</string>
+    <string name="normal">Normal</string>
+    <string name="partial_color_blind">Buta Warna Parsial</string>
+    <string name="total_color_blind">Buta Warna Total</string>
 </resources>

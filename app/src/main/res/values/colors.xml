@@ -16,4 +16,6 @@
     <color name="bg_pink_200">#F5A4B5</color>
     <color name="brown">#3b3738</color>
     <color name="dark_grey">#454545</color>
+    <color name="light_grey">#DDDDDD</color>
+    <color name="grey">#B2B2B2</color>
 </resources>

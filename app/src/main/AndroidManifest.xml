@@ -16,6 +16,9 @@
         android:supportsRtl="false"
         android:theme="@style/Theme.IshiharaColorBlindTest">
         <activity
+            android:name=".view.ResultActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.PlateThirtyEightActivity"
             android:exported="false" />
         <activity

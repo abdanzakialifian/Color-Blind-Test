@@ -100,8 +100,16 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
                     else -> tvQuestion.text = resources.getString(R.string.text_for_essay)
                 }
 
-                val listQuestionChoice =
-                    arrayListOf(question.optionOne, question.optionTwo, question.optionThree)
+                val listQuestionChoice = ArrayList<String>()
+                if (question.optionOne != "") {
+                    listQuestionChoice.add(question.optionOne)
+                }
+                if (question.optionTwo != "") {
+                    listQuestionChoice.add(question.optionTwo)
+                }
+                if (question.optionThree != "") {
+                    listQuestionChoice.add(question.optionThree)
+                }
 
                 val adapter = MultipleChoiceAdapter()
                 adapter.setListMultipleChoice(listQuestionChoice)
@@ -160,24 +168,7 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
     }
 
     private fun stateButton(state: Boolean) {
-        if (state) {
-            binding.btnSubmit.apply {
-                isEnabled = true
-                backgroundTintList =
-                    ContextCompat.getColorStateList(
-                        this@PlateFourteenActivity,
-                        R.color.blue_700
-                    )
-                setTextColor(ContextCompat.getColor(this@PlateFourteenActivity, R.color.white))
-            }
-        } else {
-            binding.btnSubmit.apply {
-                isEnabled = false
-                backgroundTintList =
-                    ContextCompat.getColorStateList(this@PlateFourteenActivity, R.color.white)
-                setTextColor(ContextCompat.getColor(this@PlateFourteenActivity, R.color.blue_700))
-            }
-        }
+        binding.btnSubmit.isEnabled = state
     }
 
     private fun hideKeyboard(view: View) {
