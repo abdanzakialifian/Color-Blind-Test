@@ -19,12 +19,16 @@ import com.ump.ishiharacolorblindtest.helper.QuestionList
 import com.ump.ishiharacolorblindtest.helper.gone
 import com.ump.ishiharacolorblindtest.helper.visible
 import com.ump.ishiharacolorblindtest.model.QuestionData
-import com.ump.ishiharacolorblindtest.model.SavedAnswer
-import com.ump.ishiharacolorblindtest.view.ScoreActivity.Companion.TEST_RESULT
+import com.ump.ishiharacolorblindtest.view.ResultActivity.Companion.NORMAL_RESULT
+import com.ump.ishiharacolorblindtest.view.ResultActivity.Companion.OTHER_RESULT
+import com.ump.ishiharacolorblindtest.view.ResultActivity.Companion.PARTIAL_RESULT
+import com.ump.ishiharacolorblindtest.view.ResultActivity.Companion.PLATE_FOURTEEN
 
 class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
     private lateinit var questionList: List<QuestionData>
-    private val savedAnswer = ArrayList<SavedAnswer>()
+    private val normalAnswer = ArrayList<String>()
+    private val partialAnswer = ArrayList<String>()
+    private val otherAnswer = ArrayList<String>()
     private var currentPage: Int = 1
     private var currentPoint: Int = 0
     private var myAnswer: String = ""
@@ -125,15 +129,7 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
 
             btnSubmit.setOnClickListener {
                 // save answer to list
-                savedAnswer.add(
-                    SavedAnswer(
-                        question.id.toString(),
-                        question.image,
-                        myAnswer,
-                        question.correctAnswer
-                    )
-                )
-
+                saveAnswer(question.id, question.correctAnswer)
                 // disable input and button after click
                 stateButton(false)
 
@@ -144,6 +140,73 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
 
                 nextQuestion()
             }
+        }
+    }
+
+    private fun saveAnswer(questionId: Int, correctAnswer: String) {
+        when (questionId) {
+            1 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(correctAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            2 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(correctAnswer)
+                "3" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            3 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(correctAnswer)
+                "2" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            4 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(correctAnswer)
+                "70" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            5 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(correctAnswer)
+                "21" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            6 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(correctAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            7 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(correctAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            8 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(correctAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            // TODO need confirm
+            9 -> when (myAnswer) {
+                "2" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            10 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(correctAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            // TODO need confirm
+            11 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(correctAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            12 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(correctAnswer)
+                "5" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            13 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(correctAnswer)
+                "6" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            // TODO need confirm
+            14 -> {}
         }
     }
 
@@ -158,8 +221,11 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
             }
             startQuiz()
         } else {
-            Intent(this, ScoreActivity::class.java).apply {
-                this.putExtra(TEST_RESULT, savedAnswer)
+            Intent(this, ResultActivity::class.java).apply {
+                putExtra(PLATE_FOURTEEN, PLATE_FOURTEEN)
+                putExtra(NORMAL_RESULT, normalAnswer)
+                putExtra(PARTIAL_RESULT, partialAnswer)
+                putExtra(OTHER_RESULT, otherAnswer)
                 startActivity(this)
             }
             finish()

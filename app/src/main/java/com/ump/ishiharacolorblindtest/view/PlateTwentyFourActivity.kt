@@ -178,11 +178,11 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
             }
             startQuiz()
         } else {
-            Intent(this, ScoreActivity::class.java).apply {
-                this.putExtra(ScoreActivity.TEST_RESULT, savedAnswer)
-                startActivity(this)
-            }
-            finish()
+//            Intent(this, ScoreActivity::class.java).apply {
+//                this.putExtra(ScoreActivity.TEST_RESULT, savedAnswer)
+//                startActivity(this)
+//            }
+//            finish()
         }
         myAnswer = ""
     }
