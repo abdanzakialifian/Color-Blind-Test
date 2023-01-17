@@ -47,4 +47,5 @@
     <string name="normal">Normal</string>
     <string name="partial_color_blind">Buta Warna Parsial</string>
     <string name="total_color_blind">Buta Warna Total</string>
+    <string name="result">Hasil</string>
 </resources>

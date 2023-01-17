@@ -1,15 +1,12 @@
 package com.ump.ishiharacolorblindtest.view
 
 import android.content.Intent
-import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.appcompat.app.AppCompatActivity
 import com.ump.ishiharacolorblindtest.databinding.ActivityResultBinding
 import kotlin.math.roundToInt
 
-class ResultActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityResultBinding
+class ResultActivity : BaseVBActivity<ActivityResultBinding>() {
     private var normalProgress = 0
     private var partialProgress = 0
     private var totalProgress = 0
@@ -17,11 +14,10 @@ class ResultActivity : AppCompatActivity() {
     private var partialPercentage = 0
     private var otherPercentage = 0
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityResultBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun getViewBinding(): ActivityResultBinding =
+        ActivityResultBinding.inflate(layoutInflater)
 
+    override fun initView() {
         val plate = intent.getStringExtra(PLATE_FOURTEEN) as String
         val normal = intent.getStringArrayListExtra(NORMAL_RESULT) as ArrayList<String>
         val partial = intent.getStringArrayListExtra(PARTIAL_RESULT) as ArrayList<String>
@@ -48,6 +44,8 @@ class ResultActivity : AppCompatActivity() {
         normal(normalPercentage)
         partialColorBlind(partialPercentage)
         totalColorBlind(otherPercentage)
+
+        binding.imgBack.setOnClickListener { onBackPressed() }
     }
 
     private fun normal(percentage: Int) {
@@ -114,8 +112,8 @@ class ResultActivity : AppCompatActivity() {
         Intent(this, HomeActivity::class.java).apply {
             addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(this)
+            finish()
         }
-        this.finish()
     }
 
     companion object {

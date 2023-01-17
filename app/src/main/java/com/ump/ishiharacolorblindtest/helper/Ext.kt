@@ -2,7 +2,6 @@ package com.ump.ishiharacolorblindtest.helper
 
 import android.content.Context
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.ump.ishiharacolorblindtest.R
