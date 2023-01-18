@@ -146,67 +146,74 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
     private fun saveAnswer(questionId: Int, correctAnswer: String) {
         when (questionId) {
             1 -> when (myAnswer) {
-                correctAnswer -> normalAnswer.add(correctAnswer)
+                correctAnswer -> normalAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             2 -> when (myAnswer) {
-                correctAnswer -> normalAnswer.add(correctAnswer)
+                correctAnswer -> normalAnswer.add(myAnswer)
                 "3" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             3 -> when (myAnswer) {
-                correctAnswer -> normalAnswer.add(correctAnswer)
+                correctAnswer -> normalAnswer.add(myAnswer)
                 "2" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             4 -> when (myAnswer) {
-                correctAnswer -> normalAnswer.add(correctAnswer)
+                correctAnswer -> normalAnswer.add(myAnswer)
                 "70" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             5 -> when (myAnswer) {
-                correctAnswer -> normalAnswer.add(correctAnswer)
+                correctAnswer -> normalAnswer.add(myAnswer)
                 "21" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             6 -> when (myAnswer) {
-                correctAnswer -> normalAnswer.add(correctAnswer)
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "2" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             7 -> when (myAnswer) {
-                correctAnswer -> normalAnswer.add(correctAnswer)
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "15" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             8 -> when (myAnswer) {
-                correctAnswer -> normalAnswer.add(correctAnswer)
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "7" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
-            // TODO need confirm
             9 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
                 "2" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             10 -> when (myAnswer) {
-                correctAnswer -> normalAnswer.add(correctAnswer)
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "18" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
-            // TODO need confirm
             11 -> when (myAnswer) {
-                correctAnswer -> normalAnswer.add(correctAnswer)
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "plate_14_11_option_2" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             12 -> when (myAnswer) {
-                correctAnswer -> normalAnswer.add(correctAnswer)
+                correctAnswer -> normalAnswer.add(myAnswer)
                 "5" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             13 -> when (myAnswer) {
-                correctAnswer -> normalAnswer.add(correctAnswer)
+                correctAnswer -> normalAnswer.add(myAnswer)
                 "6" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
-            // TODO need confirm
-            14 -> {}
+            14 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "plate_14_14_option_3" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
         }
     }
 
