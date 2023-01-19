@@ -19,11 +19,17 @@ import com.ump.ishiharacolorblindtest.helper.QuestionList
 import com.ump.ishiharacolorblindtest.helper.gone
 import com.ump.ishiharacolorblindtest.helper.visible
 import com.ump.ishiharacolorblindtest.model.QuestionData
-import com.ump.ishiharacolorblindtest.model.SavedAnswer
+import com.ump.ishiharacolorblindtest.view.ResultActivity.Companion.NORMAL_RESULT
+import com.ump.ishiharacolorblindtest.view.ResultActivity.Companion.OTHER_RESULT
+import com.ump.ishiharacolorblindtest.view.ResultActivity.Companion.PARTIAL_RESULT
+import com.ump.ishiharacolorblindtest.view.ResultActivity.Companion.PLATE_FOURTEEN
+import com.ump.ishiharacolorblindtest.view.ResultActivity.Companion.PLATE_TWENTY_FOUR
 
 class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>() {
     private lateinit var questionList: List<QuestionData>
-    private val savedAnswer = ArrayList<SavedAnswer>()
+    private val normalAnswer = ArrayList<String>()
+    private val partialAnswer = ArrayList<String>()
+    private val otherAnswer = ArrayList<String>()
     private var currentPage: Int = 1
     private var currentPoint: Int = 0
     private var myAnswer: String = ""
@@ -145,14 +151,7 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
 
             btnSubmit.setOnClickListener {
                 // save answer to list
-                savedAnswer.add(
-                    SavedAnswer(
-                        question.id.toString(),
-                        question.image,
-                        myAnswer,
-                        question.correctAnswer
-                    )
-                )
+                saveAnswer(question.id, question.correctAnswer)
 
                 // disable input and button after click
                 stateButton(false)
@@ -163,6 +162,130 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
                 }
 
                 nextQuestion()
+            }
+        }
+    }
+
+    private fun saveAnswer(questionId: Int, correctAnswer: String) {
+        when (questionId) {
+            1 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            2 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "3" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            3 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "70" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            4 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "2" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            5 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "5" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            6 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "17" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            7 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "21" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            8 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "8" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            9 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "12" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            10 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "2" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            11 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "1" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            12 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "18" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            13 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "18" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            14 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "plate_24_14_option_1" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            15 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "plate_24_15_option_2" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            16 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "28" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            17 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "12" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            18 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "plate_24_18_option_3" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            19 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "plate_24_19_option_2" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            20 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "plate_24_20_option_2" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            21 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "plate_24_21_option_1" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            22 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "plate_24_22_option_2" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            23 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "plate_24_23_option_2" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
+            }
+            24 -> when (myAnswer) {
+                correctAnswer -> normalAnswer.add(myAnswer)
+                "plate_24_24_option_2" -> partialAnswer.add(myAnswer)
+                else -> otherAnswer.add(myAnswer)
             }
         }
     }
@@ -178,11 +301,14 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
             }
             startQuiz()
         } else {
-//            Intent(this, ScoreActivity::class.java).apply {
-//                this.putExtra(ScoreActivity.TEST_RESULT, savedAnswer)
-//                startActivity(this)
-//            }
-//            finish()
+            Intent(this, ResultActivity::class.java).apply {
+                putExtra(PLATE_FOURTEEN, PLATE_TWENTY_FOUR)
+                putExtra(NORMAL_RESULT, normalAnswer)
+                putExtra(PARTIAL_RESULT, partialAnswer)
+                putExtra(OTHER_RESULT, otherAnswer)
+                startActivity(this)
+            }
+            finish()
         }
         myAnswer = ""
     }

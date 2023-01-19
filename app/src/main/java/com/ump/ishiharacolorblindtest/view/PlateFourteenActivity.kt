@@ -130,6 +130,7 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
             btnSubmit.setOnClickListener {
                 // save answer to list
                 saveAnswer(question.id, question.correctAnswer)
+
                 // disable input and button after click
                 stateButton(false)
 
