@@ -227,7 +227,7 @@ object QuestionList {
                 38 -> optionTwoName
                 else -> ""
             }
-            val optionThreeName = "plate_38_${i}_option_2"
+            val optionThreeName = "plate_38_${i}_option_3"
             val optionThree = when (i) {
                 18 -> "plate_14_9_option_3"
                 19 -> "plate_14_9_option_3"

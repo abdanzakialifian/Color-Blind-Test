@@ -65,6 +65,20 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
 
             tvPage.text = resources.getString(R.string.page, currentPage.toString())
 
+//            val timer = object : CountDownTimer(60000, 1000) {
+//                override fun onTick(millisUntilFinished: Long) {
+//                    if (millisUntilFinished == 60000L) {
+//                        tvPage.text = "01:00"
+//                    } else {
+//                        tvPage.text =
+//                            StringBuilder("00:").append((millisUntilFinished / 1000).toString())
+//                    }
+//                }
+//
+//                override fun onFinish() {}
+//            }
+//            timer.start()
+
             Glide.with(this@PlateFourteenActivity)
                 .load(resources.getIdentifier(question.image, "drawable", packageName))
                 .into(imgQuestion)
