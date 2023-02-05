@@ -67,6 +67,8 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
 
             tvPage.text = resources.getString(R.string.page, currentPage.toString())
 
+            tvQuestion.text = resources.getString(R.string.what_do_you_see)
+
             Glide.with(this@PlateTwentyFourActivity)
                 .load(resources.getIdentifier(question.image, "drawable", packageName))
                 .into(imgQuestion)
@@ -78,8 +80,6 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
             if (question.id in 1..13 || question.id in 16..17) {
                 edtField.visible()
                 rvMultipleChoice.gone()
-
-                tvQuestion.text = resources.getString(R.string.what_do_you_see)
 
                 edtField.addTextChangedListener {
                     myAnswer = it.toString()
@@ -95,8 +95,6 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
             } else {
                 edtField.gone()
                 rvMultipleChoice.visible()
-
-                tvQuestion.text = resources.getString(R.string.what_do_you_see)
 
                 val listQuestionChoice = ArrayList<String>()
                 if (question.optionOne != "") {
@@ -214,12 +212,12 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
             }
             14 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_24_14_option_1" -> partialAnswer.add(myAnswer)
+                "number_five" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             15 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_24_15_option_2" -> partialAnswer.add(myAnswer)
+                "number_forty_five" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             16 -> when (myAnswer) {

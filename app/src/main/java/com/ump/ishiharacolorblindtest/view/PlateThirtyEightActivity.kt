@@ -11,6 +11,7 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
+import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import com.ump.ishiharacolorblindtest.R
 import com.ump.ishiharacolorblindtest.adapter.MultipleChoiceAdapter
@@ -66,6 +67,8 @@ class PlateThirtyEightActivity : BaseVBActivity<ActivityPlateThirtyEightBinding>
 
             tvPage.text = resources.getString(R.string.page, currentPage.toString())
 
+            tvQuestion.text = resources.getString(R.string.what_do_you_see)
+
             Glide.with(this@PlateThirtyEightActivity)
                 .load(resources.getIdentifier(question.image, "drawable", packageName))
                 .into(imgQuestion)
@@ -77,8 +80,6 @@ class PlateThirtyEightActivity : BaseVBActivity<ActivityPlateThirtyEightBinding>
             if (question.id in 1..17 || question.id in 22..25) {
                 edtField.visible()
                 rvMultipleChoice.gone()
-
-                tvQuestion.text = resources.getString(R.string.text_for_essay)
 
                 edtField.addTextChangedListener {
                     myAnswer = it.toString()
@@ -95,78 +96,6 @@ class PlateThirtyEightActivity : BaseVBActivity<ActivityPlateThirtyEightBinding>
                 edtField.gone()
                 rvMultipleChoice.visible()
 
-                when (currentPage) {
-                    18 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_red)
-                    )
-                    19 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_red)
-                    )
-                    20 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_red)
-                    )
-                    21 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_red)
-                    )
-                    26 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_red_or_purple)
-                    )
-                    27 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_red_or_purple)
-                    )
-                    28 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_red)
-                    )
-                    29 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_red)
-                    )
-                    30 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_green)
-                    )
-                    31 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_green)
-                    )
-                    32 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_orange)
-                    )
-                    33 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_orange)
-                    )
-                    34 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_green)
-                    )
-                    35 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_green)
-                    )
-                    36 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_orange)
-                    )
-                    37 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_orange)
-                    )
-                    38 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_orange)
-                    )
-                    else -> tvQuestion.text = resources.getString(R.string.text_for_essay)
-                }
-
                 val listQuestionChoice = ArrayList<String>()
                 if (question.optionOne != "") {
                     listQuestionChoice.add(question.optionOne)
@@ -177,6 +106,9 @@ class PlateThirtyEightActivity : BaseVBActivity<ActivityPlateThirtyEightBinding>
                 if (question.optionThree != "") {
                     listQuestionChoice.add(question.optionThree)
                 }
+                if (question.optionFour != "") {
+                    listQuestionChoice.add(question.optionFour)
+                }
 
                 val adapter = MultipleChoiceAdapter()
                 adapter.setListMultipleChoice(listQuestionChoice)
@@ -186,6 +118,11 @@ class PlateThirtyEightActivity : BaseVBActivity<ActivityPlateThirtyEightBinding>
                         stateButton(true)
                     }
                 })
+                if (question.id in 18..21 || question.id in 32..33 || question.id == 38) {
+                    rvMultipleChoice.layoutManager = GridLayoutManager(this@PlateThirtyEightActivity, 3)
+                } else {
+                    rvMultipleChoice.layoutManager = GridLayoutManager(this@PlateThirtyEightActivity, 2)
+                }
                 rvMultipleChoice.adapter = adapter
                 rvMultipleChoice.setHasFixedSize(true)
             }
@@ -260,27 +197,27 @@ class PlateThirtyEightActivity : BaseVBActivity<ActivityPlateThirtyEightBinding>
             }
             11 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "8" -> partialAnswer.add(myAnswer)
+                "5" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             12 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "87" -> partialAnswer.add(myAnswer)
+                "21" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             13 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "15" -> partialAnswer.add(myAnswer)
+                "12" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             14 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "3" -> partialAnswer.add(myAnswer)
+                "2" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             15 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "1" -> partialAnswer.add(myAnswer)
+                "2" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             16 -> when (myAnswer) {
@@ -290,7 +227,7 @@ class PlateThirtyEightActivity : BaseVBActivity<ActivityPlateThirtyEightBinding>
             }
             17 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "28" -> partialAnswer.add(myAnswer)
+                "13" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             18 -> when (myAnswer) {
@@ -315,87 +252,102 @@ class PlateThirtyEightActivity : BaseVBActivity<ActivityPlateThirtyEightBinding>
             }
             22 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "28" -> partialAnswer.add(myAnswer)
+                "6" -> partialAnswer.add(myAnswer)
+                "2" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             23 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "12" -> partialAnswer.add(myAnswer)
+                "4" -> partialAnswer.add(myAnswer)
+                "2" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             24 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "85" -> partialAnswer.add(myAnswer)
+                "3" -> partialAnswer.add(myAnswer)
+                "5" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             25 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "98" -> partialAnswer.add(myAnswer)
+                "6" -> partialAnswer.add(myAnswer)
+                "9" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             26 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_38_26_option_3" -> partialAnswer.add(myAnswer)
+                "line_purple" -> partialAnswer.add(myAnswer)
+                "line_red" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             27 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_38_27_option_3" -> partialAnswer.add(myAnswer)
+                "line_purple" -> partialAnswer.add(myAnswer)
+                "line_red" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             28 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_38_28_option_2" -> partialAnswer.add(myAnswer)
+                "line_orange" -> partialAnswer.add(myAnswer)
+                "line_green" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             29 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_38_29_option_2" -> partialAnswer.add(myAnswer)
+                "line_orange" -> partialAnswer.add(myAnswer)
+                "line_green" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             30 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_38_30_option_1" -> partialAnswer.add(myAnswer)
+                "line_blue" -> partialAnswer.add(myAnswer)
+                "line_green" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             31 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_38_31_option_3" -> partialAnswer.add(myAnswer)
+                "line_blue" -> partialAnswer.add(myAnswer)
+                "line_green" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             32 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_38_32_option_2" -> partialAnswer.add(myAnswer)
+                "line_orange" -> partialAnswer.add(myAnswer)
+                "line_red" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             33 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_38_33_option_2" -> partialAnswer.add(myAnswer)
+                "line_orange" -> partialAnswer.add(myAnswer)
+                "line_red" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             34 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_38_34_option_1" -> partialAnswer.add(myAnswer)
+                "line_blue_green_and_line_purple" -> partialAnswer.add(myAnswer)
+                "line_yellow_green_and_line_blue" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             35 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_38_35_option_1" -> partialAnswer.add(myAnswer)
+                "line_blue_green_and_line_purple" -> partialAnswer.add(myAnswer)
+                "line_yellow_green_and_line_blue" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             36 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_38_36_option_1" -> partialAnswer.add(myAnswer)
+                "line_purple" -> partialAnswer.add(myAnswer)
+                "line_red" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             37 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_38_37_option_2" -> partialAnswer.add(myAnswer)
+                "line_purple" -> partialAnswer.add(myAnswer)
+                "line_red" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             38 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_38_38_option_2" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
         }
