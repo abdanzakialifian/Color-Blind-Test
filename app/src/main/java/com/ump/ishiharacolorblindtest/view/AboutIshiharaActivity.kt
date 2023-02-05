@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.ump.ishiharacolorblindtest.databinding.ActivityAboutIshiharaBinding
 import com.ump.ishiharacolorblindtest.helper.FontSize
 
-
 class AboutIshiharaActivity : BaseVBActivity<ActivityAboutIshiharaBinding>() {
 
     private lateinit var prefs: SharedPreferences
