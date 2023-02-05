@@ -11,6 +11,7 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
+import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import com.ump.ishiharacolorblindtest.R
 import com.ump.ishiharacolorblindtest.adapter.MultipleChoiceAdapter
@@ -78,7 +79,7 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
                 edtField.visible()
                 rvMultipleChoice.gone()
 
-                tvQuestion.text = resources.getString(R.string.text_for_essay)
+                tvQuestion.text = resources.getString(R.string.what_do_you_see)
 
                 edtField.addTextChangedListener {
                     myAnswer = it.toString()
@@ -95,36 +96,7 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
                 edtField.gone()
                 rvMultipleChoice.visible()
 
-                when (currentPage) {
-                    14 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_red))
-                    15 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_red))
-                    18 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_red_or_purple))
-                    19 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_red))
-                    20 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_green))
-                    21 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_orange))
-                    22 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_green))
-                    23 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_red_or_purple))
-                    24 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_orange))
-                    else -> tvQuestion.text = resources.getString(R.string.text_for_essay)
-                }
+                tvQuestion.text = resources.getString(R.string.what_do_you_see)
 
                 val listQuestionChoice = ArrayList<String>()
                 if (question.optionOne != "") {
@@ -136,9 +108,17 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
                 if (question.optionThree != "") {
                     listQuestionChoice.add(question.optionThree)
                 }
+                if (question.optionFour != "") {
+                    listQuestionChoice.add(question.optionFour)
+                }
 
                 val adapter = MultipleChoiceAdapter()
                 adapter.setListMultipleChoice(listQuestionChoice)
+                if (question.id in 14..15 || question.id == 21) {
+                    rvMultipleChoice.layoutManager = GridLayoutManager(this@PlateTwentyFourActivity, 3)
+                } else {
+                    rvMultipleChoice.layoutManager = GridLayoutManager(this@PlateTwentyFourActivity, 2)
+                }
                 adapter.setOnItemClickCallback(object : MultipleChoiceAdapter.OnItemClickCallback {
                     override fun onItemClicked(answer: String) {
                         myAnswer = answer
@@ -209,7 +189,7 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
             }
             9 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "12" -> partialAnswer.add(myAnswer)
+                "15" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             10 -> when (myAnswer) {
@@ -219,7 +199,7 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
             }
             11 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "1" -> partialAnswer.add(myAnswer)
+                "2" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             12 -> when (myAnswer) {
@@ -229,7 +209,7 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
             }
             13 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "18" -> partialAnswer.add(myAnswer)
+                "13" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             14 -> when (myAnswer) {
@@ -244,47 +224,53 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
             }
             16 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "28" -> partialAnswer.add(myAnswer)
+                "6" -> partialAnswer.add(myAnswer)
+                "2" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             17 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "12" -> partialAnswer.add(myAnswer)
+                "4" -> partialAnswer.add(myAnswer)
+                "2" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             18 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_24_18_option_3" -> partialAnswer.add(myAnswer)
+                "line_purple" -> partialAnswer.add(myAnswer)
+                "line_red" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             19 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_24_19_option_2" -> partialAnswer.add(myAnswer)
+                "line_orange" -> partialAnswer.add(myAnswer)
+                "line_green" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             20 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_24_20_option_2" -> partialAnswer.add(myAnswer)
+                "line_blue" -> partialAnswer.add(myAnswer)
+                "line_green" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             21 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_24_21_option_1" -> partialAnswer.add(myAnswer)
+                "line_red" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             22 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_24_22_option_2" -> partialAnswer.add(myAnswer)
+                "line_blue_green_and_line_purple" -> partialAnswer.add(myAnswer)
+                "line_yellow_green_and_line_blue" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             23 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_24_23_option_2" -> partialAnswer.add(myAnswer)
+                "line_purple" -> partialAnswer.add(myAnswer)
+                "line_red" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             24 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "plate_24_24_option_2" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
         }

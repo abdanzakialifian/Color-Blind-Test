@@ -19,8 +19,8 @@
             android:layout_marginStart="27dp"
             android:layout_marginTop="7dp"
             android:src="@drawable/ic_ellipse"
-            app:layout_constraintStart_toStartOf="@+id/img_ump_logo"
-            app:layout_constraintTop_toTopOf="@+id/img_ump_logo" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_circle_two"
@@ -71,16 +71,6 @@
             app:layout_constraintTop_toTopOf="@+id/cv_menu" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/img_ump_logo"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/logo_ump"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_illustration"
             android:layout_width="200dp"
             android:layout_height="200dp"
@@ -88,7 +78,7 @@
             android:layout_marginEnd="48dp"
             android:src="@drawable/ic_ilustration"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/img_ump_logo" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_menu"

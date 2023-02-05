@@ -35,9 +35,7 @@ class SplashScreenActivity : BaseVBActivity<ActivitySplashScreenBinding>() {
             resources.getString(R.string.app_version, BuildConfig.VERSION_NAME)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            Intent(this, HomeActivity::class.java).apply {
-                startActivity(this)
-            }
+            startActivity(Intent(this, HomeActivity::class.java))
             finish()
         }, DELAY_SPLASH_SCREEN)
     }
