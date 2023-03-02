@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/paper_color"
-    tools:context=".view.PlateTwentyFourActivity">
+    tools:context=".view.plate.PlateTwentyFourActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_question"

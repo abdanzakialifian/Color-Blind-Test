@@ -1,14 +1,16 @@
-package com.ump.ishiharacolorblindtest.view
+package com.ump.ishiharacolorblindtest.view.about
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
+import android.util.Log
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatDelegate
 import com.ump.ishiharacolorblindtest.databinding.ActivityAboutIshiharaBinding
 import com.ump.ishiharacolorblindtest.helper.FontSize
+import com.ump.ishiharacolorblindtest.view.base.BaseVBActivity
 
 class AboutIshiharaActivity : BaseVBActivity<ActivityAboutIshiharaBinding>() {
 
@@ -30,19 +32,19 @@ class AboutIshiharaActivity : BaseVBActivity<ActivityAboutIshiharaBinding>() {
         binding.imgPlus.setOnClickListener {
             when (prefs.getFloat(FONT_SCALE, 1F)) {
                 FontSize.DEFAULT.scale -> {
-                    updateFontSize(FontSize.LARGE.scale, prefs)
+                    updateFontSize(FontSize.LARGE.scale)
                 }
                 FontSize.LARGE.scale -> {
-                    updateFontSize(FontSize.EXTRA.scale, prefs)
+                    updateFontSize(FontSize.EXTRA.scale)
                 }
                 FontSize.EXTRA.scale -> {
-                    updateFontSize(FontSize.DEFAULT.scale, prefs)
+                    updateFontSize(FontSize.DEFAULT.scale)
                 }
             }
         }
     }
 
-    private fun updateFontSize(fontSize: Float, prefs: SharedPreferences) {
+    private fun updateFontSize(fontSize: Float) {
         prefs.edit()
             .putFloat(FONT_SCALE, fontSize)
             .apply()

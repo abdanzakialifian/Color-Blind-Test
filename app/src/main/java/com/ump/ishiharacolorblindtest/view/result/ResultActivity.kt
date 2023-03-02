@@ -1,9 +1,11 @@
-package com.ump.ishiharacolorblindtest.view
+package com.ump.ishiharacolorblindtest.view.result
 
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import com.ump.ishiharacolorblindtest.databinding.ActivityResultBinding
+import com.ump.ishiharacolorblindtest.view.base.BaseVBActivity
+import com.ump.ishiharacolorblindtest.view.home.HomeActivity
 import kotlin.math.roundToInt
 
 class ResultActivity : BaseVBActivity<ActivityResultBinding>() {

@@ -1,4 +1,4 @@
-package com.ump.ishiharacolorblindtest.view
+package com.ump.ishiharacolorblindtest.view.plate
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -19,10 +19,13 @@ import com.ump.ishiharacolorblindtest.helper.QuestionList
 import com.ump.ishiharacolorblindtest.helper.gone
 import com.ump.ishiharacolorblindtest.helper.visible
 import com.ump.ishiharacolorblindtest.model.QuestionData
-import com.ump.ishiharacolorblindtest.view.ResultActivity.Companion.NORMAL_RESULT
-import com.ump.ishiharacolorblindtest.view.ResultActivity.Companion.OTHER_RESULT
-import com.ump.ishiharacolorblindtest.view.ResultActivity.Companion.PARTIAL_RESULT
-import com.ump.ishiharacolorblindtest.view.ResultActivity.Companion.PLATE_FOURTEEN
+import com.ump.ishiharacolorblindtest.view.result.ResultActivity
+import com.ump.ishiharacolorblindtest.view.result.ResultActivity.Companion.NORMAL_RESULT
+import com.ump.ishiharacolorblindtest.view.result.ResultActivity.Companion.OTHER_RESULT
+import com.ump.ishiharacolorblindtest.view.result.ResultActivity.Companion.PARTIAL_RESULT
+import com.ump.ishiharacolorblindtest.view.result.ResultActivity.Companion.PLATE_FOURTEEN
+import com.ump.ishiharacolorblindtest.view.base.BaseVBActivity
+import com.ump.ishiharacolorblindtest.view.home.HomeActivity
 
 class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
     private lateinit var questionList: List<QuestionData>

@@ -1,4 +1,4 @@
-package com.ump.ishiharacolorblindtest.view
+package com.ump.ishiharacolorblindtest.view.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

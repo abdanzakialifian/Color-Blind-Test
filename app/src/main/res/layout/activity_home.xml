@@ -6,10 +6,11 @@
     android:layout_height="match_parent"
     android:background="@color/blue_700"
     android:scrollbars="none"
-    tools:context=".view.HomeActivity">
+    tools:context=".view.home.HomeActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:paddingBottom="20dp"
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -385,6 +386,7 @@
             android:fontFamily="@font/nsemibold"
             android:gravity="center"
             android:text="@string/team_names"
+            android:layout_marginHorizontal="20dp"
             android:textColor="@color/blue_300"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"

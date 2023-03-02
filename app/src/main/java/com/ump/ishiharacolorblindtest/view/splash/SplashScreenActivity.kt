@@ -1,4 +1,4 @@
-package com.ump.ishiharacolorblindtest.view
+package com.ump.ishiharacolorblindtest.view.splash
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.ump.ishiharacolorblindtest.BuildConfig
 import com.ump.ishiharacolorblindtest.R
 import com.ump.ishiharacolorblindtest.databinding.ActivitySplashScreenBinding
+import com.ump.ishiharacolorblindtest.view.base.BaseVBActivity
+import com.ump.ishiharacolorblindtest.view.home.HomeActivity
 
 @SuppressLint("CustomSplashScreen")
 @Suppress("DEPRECATION")

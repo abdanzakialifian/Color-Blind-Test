@@ -24,7 +24,7 @@
     <string name="ishihara_analisi_hasil">Karena penilaian pembacaan pelat 1 sampai 11 menentukan normalitas atau cacat penglihatan warna. Jika satu atau lebih pelat terbaca secara normal, penglihatan warna dianggap normal. Jika 7 atau kurang dari 7 pelat, artinya pembacaan normal, tetapi penglihatan warna dianggap kurang. Namun, mengacu pada pelat 9, hanya mereka yang membaca angka 2 dan yang lebih mudah membacanya daripada yang ada pada Pelat 8 dianggap sebagai tidak normal.\nJarang ditemukan orang yang rekaman jawaban normalnya adalah 9 atau 8 pelat. Penilaian kasus semacam itu memerlukan penggunaan tes penglihatan warna lainnya, termasuk anomaloscpe.\nPenting untuk diketahui bahwa buku pelat uji harus disimpan dengan baik dan aman, kecuali selama penggunaan, karena paparan sinar matahari yang berlebihan menyebabkan memudarnya warna pelat.</string>
     <string name="ishihara_jawaban_setiap_piring">Tanda X menunjukkan bahwa pelat tidak dapat dibaca. Angka dan garis berliku dalam kurung menunjukkan bahwa mereka dapat dibaca atau dilacak tetapi mereka relatif tidak jelas.</string>
     <string name="app_version">v%s</string>
-    <string name="team_names">Fakultas Ilmu Kesehatan\nUniversitas Muhammadiyah Purwokerto\nAgus Santosa, S.Kep., M.Kep | Danu Saputra | Friska Adelia</string>
+    <string name="team_names">Fakultas Ilmu Kesehatan\nUniversitas Muhammadiyah Purwokerto\nAgus Santosa, S.Kep., M.Kep | Danu Saputra | Friska Adelia | Al Fian Hanif Akbar Muiz</string>
     <string name="next_page">Halaman Selanjutnya</string>
     <string name="no_plate">Plate %s</string>
     <string name="about_ishihara">Tentang tes Ishihara</string>

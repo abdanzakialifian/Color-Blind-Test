@@ -1,4 +1,4 @@
-package com.ump.ishiharacolorblindtest.view
+package com.ump.ishiharacolorblindtest.view.home
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -7,6 +7,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import com.ump.ishiharacolorblindtest.R
 import com.ump.ishiharacolorblindtest.databinding.ActivityHomeBinding
+import com.ump.ishiharacolorblindtest.view.plate.PlateFourteenActivity
+import com.ump.ishiharacolorblindtest.view.plate.PlateThirtyEightActivity
+import com.ump.ishiharacolorblindtest.view.plate.PlateTwentyFourActivity
+import com.ump.ishiharacolorblindtest.view.about.AboutIshiharaActivity
+import com.ump.ishiharacolorblindtest.view.base.BaseVBActivity
 
 class HomeActivity : BaseVBActivity<ActivityHomeBinding>() {
 
