@@ -6,15 +6,15 @@ import android.os.Looper
 import com.ump.ishiharacolorblindtest.databinding.ActivityResultBinding
 import com.ump.ishiharacolorblindtest.view.base.BaseVBActivity
 import com.ump.ishiharacolorblindtest.view.home.HomeActivity
-import kotlin.math.roundToInt
+import kotlin.math.roundToLong
 
 class ResultActivity : BaseVBActivity<ActivityResultBinding>() {
     private var normalProgress = 0
     private var partialProgress = 0
     private var totalProgress = 0
-    private var normalPercentage = 0
-    private var partialPercentage = 0
-    private var otherPercentage = 0
+    private var normalPercentage = 0L
+    private var partialPercentage = 0L
+    private var otherPercentage = 0L
 
     override fun getViewBinding(): ActivityResultBinding =
         ActivityResultBinding.inflate(layoutInflater)
@@ -27,19 +27,19 @@ class ResultActivity : BaseVBActivity<ActivityResultBinding>() {
 
         when (plate) {
             PLATE_FOURTEEN -> {
-                normalPercentage = ((normal.size.toDouble() / 14.0) * 100).roundToInt()
-                partialPercentage = ((partial.size.toDouble() / 14.0) * 100).roundToInt()
-                otherPercentage = ((other.size.toDouble() / 14.0) * 100).roundToInt()
+                normalPercentage = ((normal.size.toDouble() / 14.0) * 100).roundToLong()
+                partialPercentage = ((partial.size.toDouble() / 14.0) * 100).roundToLong()
+                otherPercentage = ((other.size.toDouble() / 14.0) * 100).roundToLong()
             }
             PLATE_TWENTY_FOUR -> {
-                normalPercentage = ((normal.size.toDouble() / 24.0) * 100).roundToInt()
-                partialPercentage = ((partial.size.toDouble() / 24.0) * 100).roundToInt()
-                otherPercentage = ((other.size.toDouble() / 24.0) * 100).roundToInt()
+                normalPercentage = ((normal.size.toDouble() / 24.0) * 100).roundToLong()
+                partialPercentage = ((partial.size.toDouble() / 24.0) * 100).roundToLong()
+                otherPercentage = ((other.size.toDouble() / 24.0) * 100).roundToLong()
             }
             PLATE_THIRTY_EIGHT -> {
-                normalPercentage = ((normal.size.toDouble() / 38.0) * 100).roundToInt()
-                partialPercentage = ((partial.size.toDouble() / 38.0) * 100).roundToInt()
-                otherPercentage = ((other.size.toDouble() / 38.0) * 100).roundToInt()
+                normalPercentage = ((normal.size.toDouble() / 38.0) * 100).roundToLong()
+                partialPercentage = ((partial.size.toDouble() / 38.0) * 100).roundToLong()
+                otherPercentage = ((other.size.toDouble() / 38.0) * 100).roundToLong()
             }
         }
 
@@ -50,7 +50,7 @@ class ResultActivity : BaseVBActivity<ActivityResultBinding>() {
         binding.imgBack.setOnClickListener { onBackPressed() }
     }
 
-    private fun normal(percentage: Int) {
+    private fun normal(percentage: Long) {
         binding.apply {
             val handler = Handler(Looper.getMainLooper())
             handler.postDelayed(object : Runnable {
@@ -70,7 +70,7 @@ class ResultActivity : BaseVBActivity<ActivityResultBinding>() {
         }
     }
 
-    private fun partialColorBlind(percentage: Int) {
+    private fun partialColorBlind(percentage: Long) {
         binding.apply {
             val handler = Handler(Looper.getMainLooper())
             handler.postDelayed(object : Runnable {
@@ -90,7 +90,7 @@ class ResultActivity : BaseVBActivity<ActivityResultBinding>() {
         }
     }
 
-    private fun totalColorBlind(percentage: Int) {
+    private fun totalColorBlind(percentage: Long) {
         binding.apply {
             val handler = Handler(Looper.getMainLooper())
             handler.postDelayed(object : Runnable {
