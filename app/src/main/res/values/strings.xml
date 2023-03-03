@@ -49,4 +49,8 @@
     <string name="total_color_blind">Buta Warna Total</string>
     <string name="result">Hasil</string>
     <string name="what_do_you_see">Apa yang kamu lihat?</string>
+    <string name="title_alert_dialog">Apakah Anda Yakin?</string>
+    <string name="sub_title_alert_dialog">Dengan mengubah teks maka aplikasi akan dimuat ulang. Lanjut?</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
 </resources>
