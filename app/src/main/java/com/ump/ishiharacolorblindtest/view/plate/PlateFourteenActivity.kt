@@ -68,19 +68,7 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
 
             tvPage.text = resources.getString(R.string.page, currentPage.toString())
 
-//            val timer = object : CountDownTimer(60000, 1000) {
-//                override fun onTick(millisUntilFinished: Long) {
-//                    if (millisUntilFinished == 60000L) {
-//                        tvPage.text = "01:00"
-//                    } else {
-//                        tvPage.text =
-//                            StringBuilder("00:").append((millisUntilFinished / 1000).toString())
-//                    }
-//                }
-//
-//                override fun onFinish() {}
-//            }
-//            timer.start()
+            tvQuestion.text = resources.getString(R.string.what_do_you_see)
 
             Glide.with(this@PlateFourteenActivity)
                 .load(resources.getIdentifier(question.image, "drawable", packageName))
@@ -93,8 +81,6 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
             if (question.id in 1..8 || question.id == 10 || question.id in 12..13) {
                 edtField.visible()
                 rvMultipleChoice.gone()
-
-                tvQuestion.text = resources.getString(R.string.text_for_essay)
 
                 edtField.addTextChangedListener {
                     myAnswer = it.toString()
@@ -110,16 +96,6 @@ class PlateFourteenActivity : BaseVBActivity<ActivityPlatFourteenBinding>() {
             } else {
                 edtField.gone()
                 rvMultipleChoice.visible()
-
-                when (currentPage) {
-                    11 -> tvQuestion.text = resources.getString(
-                        R.string.text_for_multiple_choice,
-                        resources.getString(R.string.color_green)
-                    )
-                    14 -> tvQuestion.text =
-                        resources.getString(R.string.text_for_multiple_choice_line)
-                    else -> tvQuestion.text = resources.getString(R.string.text_for_essay)
-                }
 
                 val listQuestionChoice = ArrayList<String>()
                 if (question.optionOne != "") {

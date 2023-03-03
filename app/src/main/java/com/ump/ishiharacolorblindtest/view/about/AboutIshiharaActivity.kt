@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
-import android.util.Log
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatDelegate
 import com.ump.ishiharacolorblindtest.databinding.ActivityAboutIshiharaBinding
@@ -15,7 +14,6 @@ import com.ump.ishiharacolorblindtest.view.base.BaseVBActivity
 class AboutIshiharaActivity : BaseVBActivity<ActivityAboutIshiharaBinding>() {
 
     private lateinit var prefs: SharedPreferences
-    private var fontSize = 1F
 
     override fun getViewBinding(): ActivityAboutIshiharaBinding =
         ActivityAboutIshiharaBinding.inflate(layoutInflater)
@@ -33,15 +31,21 @@ class AboutIshiharaActivity : BaseVBActivity<ActivityAboutIshiharaBinding>() {
         binding.imgPlus.setOnClickListener {
             when (prefs.getFloat(FONT_SCALE, 1F)) {
                 FontSize.DEFAULT.scale -> {
-                    fontSize = FontSize.LARGE.scale
+                    prefs.edit()
+                        .putFloat(FONT_SCALE, FontSize.LARGE.scale)
+                        .apply()
                     recreate()
                 }
                 FontSize.LARGE.scale -> {
-                    fontSize = FontSize.EXTRA.scale
+                    prefs.edit()
+                        .putFloat(FONT_SCALE, FontSize.EXTRA.scale)
+                        .apply()
                     recreate()
                 }
                 FontSize.EXTRA.scale -> {
-                    fontSize = FontSize.DEFAULT.scale
+                    prefs.edit()
+                        .putFloat(FONT_SCALE, FontSize.DEFAULT.scale)
+                        .apply()
                     recreate()
                 }
             }
@@ -56,13 +60,6 @@ class AboutIshiharaActivity : BaseVBActivity<ActivityAboutIshiharaBinding>() {
         windowManager.defaultDisplay.getMetrics(metrics)
         metrics.scaledDensity = configuration.fontScale * metrics.density
         baseContext.resources.updateConfiguration(configuration, metrics)
-    }
-
-    override fun onDestroy() {
-        prefs.edit()
-            .putFloat(FONT_SCALE, fontSize)
-            .apply()
-        super.onDestroy()
     }
 
     companion object {
