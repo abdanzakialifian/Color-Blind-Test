@@ -18,30 +18,27 @@ object QuestionList {
                 "2",
                 "nothing",
                 "16",
-                "plate_14_11_option_3",
+                "line_blue_and_line_green",
                 "35",
                 "96",
-                "plate_14_14_option_1"
+                "line_purple_and_line_red"
             )
-            val optionOneName = "plate_14_${i}_option_1"
             val optionOne = when(i) {
                 9 -> "number_eight"
-                11 -> optionOneName
-                14 -> optionOneName
+                11 -> "line_blue_and_line_green"
+                14 -> "nothing"
                 else -> ""
             }
-            val optionTwoName = "plate_14_${i}_option_2"
             val optionTwo = when(i) {
                 9 -> "number_two"
-                11 -> optionTwoName
-                14 -> optionTwoName
+                11 -> "line_green"
+                14 -> "line_purple_and_line_red"
                 else -> ""
             }
-            val optionThreeName = "plate_14_${i}_option_3"
             val optionThree = when(i) {
                 9 -> "nothing"
-                11 -> optionThreeName
-                14 -> optionThreeName
+                11 -> "nothing"
+                14 -> "line_red"
                 else -> ""
             }
             val question = QuestionData(
