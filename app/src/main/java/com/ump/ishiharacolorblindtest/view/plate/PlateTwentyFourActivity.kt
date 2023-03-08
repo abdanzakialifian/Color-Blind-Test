@@ -112,11 +112,6 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
 
                 val adapter = MultipleChoiceAdapter()
                 adapter.setListMultipleChoice(listQuestionChoice)
-                if (question.id in 14..15 || question.id == 21) {
-                    rvMultipleChoice.layoutManager = GridLayoutManager(this@PlateTwentyFourActivity, 3)
-                } else {
-                    rvMultipleChoice.layoutManager = GridLayoutManager(this@PlateTwentyFourActivity, 2)
-                }
                 adapter.setOnItemClickCallback(object : MultipleChoiceAdapter.OnItemClickCallback {
                     override fun onItemClicked(answer: String) {
                         myAnswer = answer
