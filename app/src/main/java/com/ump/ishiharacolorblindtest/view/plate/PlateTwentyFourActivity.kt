@@ -109,9 +109,6 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
                 if (question.optionThree != "") {
                     listQuestionChoice.add(question.optionThree)
                 }
-                if (question.optionFour != "") {
-                    listQuestionChoice.add(question.optionFour)
-                }
 
                 val adapter = MultipleChoiceAdapter()
                 adapter.setListMultipleChoice(listQuestionChoice)
@@ -238,19 +235,16 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
             18 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
                 "line_purple" -> partialAnswer.add(myAnswer)
-                "line_red" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             19 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
                 "line_orange" -> partialAnswer.add(myAnswer)
-                "line_green" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             20 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
                 "line_blue" -> partialAnswer.add(myAnswer)
-                "line_green" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             21 -> when (myAnswer) {
@@ -261,12 +255,10 @@ class PlateTwentyFourActivity : BaseVBActivity<ActivityPlateTwentyFourBinding>()
             22 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
                 "line_blue_green_and_line_purple" -> partialAnswer.add(myAnswer)
-                "line_yellow_green_and_line_blue" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             23 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "line_purple" -> partialAnswer.add(myAnswer)
                 "line_red" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }

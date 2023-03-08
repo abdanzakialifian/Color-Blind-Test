@@ -89,12 +89,12 @@ object QuestionList {
             val optionOne = when (i) {
                 14 -> "number_five"
                 15 -> "number_five"
-                18 -> "line_purple_and_line_red"
-                19 -> "nothing"
+                18 -> "line_purple"
+                19 -> "line_green"
                 20 -> "line_blue_and_line_green"
                 21 -> "line_orange"
                 22 -> "line_blue_green_and_line_yellow_green"
-                23 -> "line_purple_and_line_orange"
+                23 -> "nothing"
                 24 -> "line_orange"
                 else -> ""
             }
@@ -102,12 +102,12 @@ object QuestionList {
             val optionTwo = when (i) {
                 14 -> "number_forty_five"
                 15 -> "number_forty_five"
-                18 -> "line_purple"
+                18 -> "line_purple_and_line_red"
                 19 -> "line_orange"
                 20 -> "line_blue"
                 21 -> "line_red"
-                22 -> "line_blue_green_and_line_purple"
-                23 -> "line_purple"
+                22 -> "nothing"
+                23 -> "line_red"
                 24 -> "line_red"
                 else -> ""
             }
@@ -116,30 +116,29 @@ object QuestionList {
                 14 -> "nothing"
                 15 -> "nothing"
                 18 -> "line_red"
-                19 -> "line_green"
-                20 -> "line_green"
+                19 -> "nothing"
+                20 -> "nothing"
                 21 -> "line_green"
-                22 -> "line_yellow_green_and_line_blue"
-                23 -> "line_red"
+                22 -> "line_blue_green_and_line_purple"
+                23 -> "line_purple_and_line_orange"
                 24 -> "line_purple"
                 else -> ""
             }
-            val optionFour = when(i) {
-                18 -> "nothing"
-                19 -> "line_orange_and_line_green"
-                20 -> "nothing"
-                22 -> "nothing"
-                23 -> "nothing"
-                24 -> "nothing"
-                else -> ""
-            }
+//            val optionFour = when(i) {
+//                18 -> "nothing"
+//                19 -> "line_orange_and_line_green"
+//                20 -> "nothing"
+//                22 -> "nothing"
+//                23 -> "nothing"
+//                24 -> "nothing"
+//                else -> ""
+//            }
             val question = QuestionData(
                 id = i,
                 image = "plate_24_$i",
                 optionOne = optionOne,
                 optionTwo = optionTwo,
                 optionThree = optionThree,
-                optionFour = optionFour,
                 correctAnswer = correctAnswer[i - 1]
             )
             listQuestion.add(question)
