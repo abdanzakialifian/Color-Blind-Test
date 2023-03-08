@@ -68,7 +68,7 @@
             android:layout_marginTop="10dp">
 
             <ProgressBar
-                android:id="@+id/normal_progress"
+                android:id="@+id/normal_color_blind_progress"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="120dp"
                 android:layout_height="120dp"

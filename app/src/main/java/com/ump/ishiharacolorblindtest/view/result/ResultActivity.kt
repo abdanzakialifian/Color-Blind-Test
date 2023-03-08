@@ -43,23 +43,26 @@ class ResultActivity : BaseVBActivity<ActivityResultBinding>() {
             }
         }
 
-        normal(normalPercentage)
-        partialColorBlind(partialPercentage)
-        totalColorBlind(otherPercentage)
+        normal()
+        partialColorBlind()
+        totalColorBlind()
 
         binding.imgBack.setOnClickListener { onBackPressed() }
     }
 
-    private fun normal(percentage: Long) {
+    private fun normal() {
         binding.apply {
             val handler = Handler(Looper.getMainLooper())
             handler.postDelayed(object : Runnable {
                 override fun run() {
-                    if (this@ResultActivity.normalProgress <= percentage) {
-                        tvNormalPercentage.text =
-                            StringBuilder().append(this@ResultActivity.normalProgress).append("%")
-                        normalProgress.progress = this@ResultActivity.normalProgress
-                        this@ResultActivity.normalProgress++
+                    // why (normalPercentage + 1) ? so that the final result meets the number 100
+                    val totalPercentage = normalPercentage + partialPercentage + otherPercentage
+                    val percentage =
+                        if (totalPercentage == 100L) normalPercentage else normalPercentage + 1
+                    if (normalProgress <= percentage) {
+                        tvNormalPercentage.text = StringBuilder().append(normalProgress).append("%")
+                        normalColorBlindProgress.progress = normalProgress
+                        normalProgress++
                         handler.postDelayed(this, 20L)
                     } else {
                         handler.removeCallbacks(this)
@@ -70,12 +73,12 @@ class ResultActivity : BaseVBActivity<ActivityResultBinding>() {
         }
     }
 
-    private fun partialColorBlind(percentage: Long) {
+    private fun partialColorBlind() {
         binding.apply {
             val handler = Handler(Looper.getMainLooper())
             handler.postDelayed(object : Runnable {
                 override fun run() {
-                    if (partialProgress <= percentage) {
+                    if (partialProgress <= partialPercentage) {
                         tvPartialColorBlindPercentage.text =
                             StringBuilder().append(partialProgress).append("%")
                         partialColorBlindProgress.progress = partialProgress
@@ -90,12 +93,12 @@ class ResultActivity : BaseVBActivity<ActivityResultBinding>() {
         }
     }
 
-    private fun totalColorBlind(percentage: Long) {
+    private fun totalColorBlind() {
         binding.apply {
             val handler = Handler(Looper.getMainLooper())
             handler.postDelayed(object : Runnable {
                 override fun run() {
-                    if (totalProgress <= percentage) {
+                    if (totalProgress <= otherPercentage) {
                         tvTotalColorBlindPercentage.text =
                             StringBuilder().append(totalProgress).append("%")
                         totalColorBlindProgress.progress = totalProgress
