@@ -159,6 +159,7 @@
                         android:layout_gravity="center_horizontal"
                         android:orientation="horizontal"
                         android:visibility="gone"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                         tools:listitem="@layout/item_list_choice" />
 
                 </LinearLayout>

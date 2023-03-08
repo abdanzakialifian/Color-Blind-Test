@@ -109,9 +109,6 @@ class PlateThirtyEightActivity : BaseVBActivity<ActivityPlateThirtyEightBinding>
                 if (question.optionThree != "") {
                     listQuestionChoice.add(question.optionThree)
                 }
-                if (question.optionFour != "") {
-                    listQuestionChoice.add(question.optionFour)
-                }
 
                 val adapter = MultipleChoiceAdapter()
                 adapter.setListMultipleChoice(listQuestionChoice)
@@ -121,11 +118,6 @@ class PlateThirtyEightActivity : BaseVBActivity<ActivityPlateThirtyEightBinding>
                         stateButton(true)
                     }
                 })
-                if (question.id in 18..21 || question.id in 32..33 || question.id == 38) {
-                    rvMultipleChoice.layoutManager = GridLayoutManager(this@PlateThirtyEightActivity, 3)
-                } else {
-                    rvMultipleChoice.layoutManager = GridLayoutManager(this@PlateThirtyEightActivity, 2)
-                }
                 rvMultipleChoice.adapter = adapter
                 rvMultipleChoice.setHasFixedSize(true)
             }
@@ -280,72 +272,60 @@ class PlateThirtyEightActivity : BaseVBActivity<ActivityPlateThirtyEightBinding>
             26 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
                 "line_purple" -> partialAnswer.add(myAnswer)
-                "line_red" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             27 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
                 "line_purple" -> partialAnswer.add(myAnswer)
-                "line_red" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             28 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
                 "line_orange" -> partialAnswer.add(myAnswer)
-                "line_green" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             29 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
                 "line_orange" -> partialAnswer.add(myAnswer)
-                "line_green" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             30 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
                 "line_blue" -> partialAnswer.add(myAnswer)
-                "line_green" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             31 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "line_blue" -> partialAnswer.add(myAnswer)
                 "line_green" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             32 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "line_orange" -> partialAnswer.add(myAnswer)
                 "line_red" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             33 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "line_orange" -> partialAnswer.add(myAnswer)
                 "line_red" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             34 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
                 "line_blue_green_and_line_purple" -> partialAnswer.add(myAnswer)
-                "line_yellow_green_and_line_blue" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             35 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
                 "line_blue_green_and_line_purple" -> partialAnswer.add(myAnswer)
-                "line_yellow_green_and_line_blue" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             36 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "line_purple" -> partialAnswer.add(myAnswer)
-                "line_red" -> partialAnswer.add(myAnswer)
+                "line_blue_and_line_green" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }
             37 -> when (myAnswer) {
                 correctAnswer -> normalAnswer.add(myAnswer)
-                "line_purple" -> partialAnswer.add(myAnswer)
                 "line_red" -> partialAnswer.add(myAnswer)
                 else -> otherAnswer.add(myAnswer)
             }

@@ -124,15 +124,7 @@ object QuestionList {
                 24 -> "line_purple"
                 else -> ""
             }
-//            val optionFour = when(i) {
-//                18 -> "nothing"
-//                19 -> "line_orange_and_line_green"
-//                20 -> "nothing"
-//                22 -> "nothing"
-//                23 -> "nothing"
-//                24 -> "nothing"
-//                else -> ""
-//            }
+
             val question = QuestionData(
                 id = i,
                 image = "plate_24_$i",
@@ -198,17 +190,17 @@ object QuestionList {
                 20 -> "number_forty_five"
                 21 -> "number_seventy_three"
                 26 -> "line_purple_and_line_red"
-                27 -> "line_red"
+                27 -> "line_purple"
                 28 -> "nothing"
-                29 -> "line_orange_and_line_green"
-                30 -> "line_green"
-                31 -> "line_blue"
+                29 -> "line_orange"
+                30 -> "line_blue"
+                31 -> "line_green"
                 32 -> "line_red"
                 33 -> "line_red"
                 34 -> "line_blue_green_and_line_purple"
                 35 -> "line_blue_green_and_line_yellow_green"
                 36 -> "nothing"
-                37 -> "line_purple"
+                37 -> "line_red"
                 38 -> "line_orange"
                 else -> ""
             }
@@ -218,17 +210,17 @@ object QuestionList {
                 19 -> "number_six"
                 20 -> "number_eight"
                 21 -> "number_five"
-                26 -> "line_purple"
+                26 -> "nothing"
                 27 -> "nothing"
-                28 -> "line_orange_and_line_green"
-                29 -> "line_orange"
+                28 -> "line_orange"
+                29 -> "line_green"
                 30 -> "line_blue_and_line_green"
                 31 -> "nothing"
                 32 -> "line_orange"
                 33 -> "line_green"
                 34 -> "line_blue_green_and_line_yellow_green"
-                35 -> "line_yellow_green_and_line_blue"
-                36 -> "line_purple"
+                35 -> "line_blue_green_and_line_purple"
+                36 -> "line_blue_and_line_green"
                 37 -> "nothing"
                 38 -> "line_red"
                 else -> ""
@@ -239,41 +231,40 @@ object QuestionList {
                 19 -> "nothing"
                 20 -> "nothing"
                 21 -> "nothing"
-                26 -> "line_red"
-                27 -> "line_purple"
+                26 -> "line_purple"
+                27 -> "line_purple_and_line_red"
                 28 -> "line_green"
                 29 -> "nothing"
-                30 -> "line_blue"
-                31 -> "line_green"
+                30 -> "nothing"
+                31 -> "line_blue_and_line_green"
                 32 -> "line_green"
                 33 -> "line_orange"
-                34 -> "line_yellow_green_and_line_blue"
-                35 -> "line_blue_green_and_line_purple"
-                36 -> "line_red"
+                34 -> "nothing"
+                35 -> "nothing"
+                36 -> "line_purple_and_line_orange"
                 37 -> "line_purple_and_line_orange"
                 38 -> "line_purple"
                 else -> ""
             }
-            val optionFour = when(i) {
-                26 -> "nothing"
-                27 -> "line_purple_and_line_red"
-                28 -> "line_orange"
-                29 -> "line_green"
-                30 -> "nothing"
-                31 -> "line_blue_and_line_green"
-                34 -> "nothing"
-                35 -> "nothing"
-                36 -> "line_purple_and_line_orange"
-                37 -> "line_red"
-                else -> ""
-            }
+//            val optionFour = when(i) {
+//                26 -> "nothing"
+//                27 -> "line_purple_and_line_red"
+//                28 -> "line_orange"
+//                29 -> "line_green"
+//                30 -> "nothing"
+//                31 -> "line_blue_and_line_green"
+//                34 -> "nothing"
+//                35 -> "nothing"
+//                36 -> "line_purple_and_line_orange"
+//                37 -> "line_red"
+//                else -> ""
+//            }
             val question = QuestionData(
                 id = i,
                 image = "plate_38_$i",
                 optionOne = optionOne,
                 optionTwo = optionTwo,
                 optionThree = optionThree,
-                optionFour = optionFour,
                 correctAnswer = correctAnswer[i - 1]
             )
             listQuestion.add(question)
