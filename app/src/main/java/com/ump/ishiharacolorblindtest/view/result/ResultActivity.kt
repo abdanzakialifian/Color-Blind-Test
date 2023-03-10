@@ -57,8 +57,18 @@ class ResultActivity : BaseVBActivity<ActivityResultBinding>() {
                 override fun run() {
                     // why (normalPercentage + 1) ? so that the final result meets the number 100
                     val totalPercentage = normalPercentage + partialPercentage + otherPercentage
+                    // if the final result is more than 100
+                    val minus = totalPercentage - 100
+
                     val percentage =
-                        if (totalPercentage == 100L) normalPercentage else normalPercentage + 1
+                        if (totalPercentage == 100L)  {
+                            normalPercentage
+                        } else if(totalPercentage < 100) {
+                            normalPercentage + 1
+                        } else {
+                            normalPercentage - minus
+                        }
+
                     if (normalProgress <= percentage) {
                         tvNormalPercentage.text = StringBuilder().append(normalProgress).append("%")
                         normalColorBlindProgress.progress = normalProgress
