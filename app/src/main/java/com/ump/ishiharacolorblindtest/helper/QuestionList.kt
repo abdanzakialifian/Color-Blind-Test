@@ -87,7 +87,7 @@ object QuestionList {
             )
 
             val optionOne = when (i) {
-                14 -> "number_five"
+                14 -> "nothing"
                 15 -> "number_five"
                 18 -> "line_purple"
                 19 -> "line_green"
@@ -102,7 +102,7 @@ object QuestionList {
             val optionTwo = when (i) {
                 14 -> "number_forty_five"
                 15 -> "number_forty_five"
-                18 -> "line_purple_and_line_red"
+                18 -> "nothing"
                 19 -> "line_orange"
                 20 -> "line_blue"
                 21 -> "line_red"
@@ -113,9 +113,9 @@ object QuestionList {
             }
 
             val optionThree = when (i) {
-                14 -> "nothing"
+                14 -> "number_five"
                 15 -> "nothing"
-                18 -> "line_red"
+                18 -> "line_purple_and_line_red"
                 19 -> "nothing"
                 20 -> "nothing"
                 21 -> "line_green"
