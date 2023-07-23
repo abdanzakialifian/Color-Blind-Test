@@ -59,4 +59,6 @@
     <string name="sub_title_alert_dialog">Dengan mengubah ukuran teks maka aplikasi akan dimuat ulang. Lanjut?</string>
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>
+    <string name="title_result_information">Keterangan : </string>
+    <string name="sub_title_result_information">Jika salah satu atau lebih dalam menjawab test maka dikatakan Buta Warna Parsial</string>
 </resources>

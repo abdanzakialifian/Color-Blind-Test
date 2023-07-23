@@ -45,126 +45,155 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:scrollbars="none">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="-20dp"
-            android:fontFamily="@font/nbold"
-            android:text="@string/normal"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp">
-
-            <ProgressBar
-                android:id="@+id/normal_color_blind_progress"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center"
-                android:indeterminate="false"
-                android:progressDrawable="@drawable/circle_progress_bar"
-                android:rotation="-90" />
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_normal_percentage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="@font/nsemibold"
+                android:layout_marginTop="-20dp"
+                android:fontFamily="@font/nbold"
+                android:text="@string/normal"
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                tools:text="60%" />
+                android:textSize="18sp" />
 
-        </FrameLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:fontFamily="@font/nbold"
-            android:text="@string/partial_color_blind"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp">
-
-            <ProgressBar
-                android:id="@+id/partial_color_blind_progress"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center"
-                android:indeterminate="false"
-                android:progressDrawable="@drawable/circle_progress_bar"
-                android:rotation="-90" />
-
-            <TextView
-                android:id="@+id/tv_partial_color_blind_percentage"
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="@font/nsemibold"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                tools:text="30%" />
+                android:layout_marginTop="10dp">
 
-        </FrameLayout>
+                <ProgressBar
+                    android:id="@+id/normal_color_blind_progress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:indeterminate="false"
+                    android:progressDrawable="@drawable/circle_progress_bar"
+                    android:rotation="-90" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:fontFamily="@font/nbold"
-            android:text="@string/total_color_blind"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/tv_normal_percentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/nsemibold"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="60%" />
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp">
-
-            <ProgressBar
-                android:id="@+id/total_color_blind_progress"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center"
-                android:indeterminate="false"
-                android:progressDrawable="@drawable/circle_progress_bar"
-                android:rotation="-90" />
+            </FrameLayout>
 
             <TextView
-                android:id="@+id/tv_total_color_blind_percentage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="@font/nsemibold"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/nbold"
+                android:text="@string/partial_color_blind"
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                tools:text="10%" />
+                android:textSize="18sp" />
 
-        </FrameLayout>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp">
 
-    </LinearLayout>
+                <ProgressBar
+                    android:id="@+id/partial_color_blind_progress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:indeterminate="false"
+                    android:progressDrawable="@drawable/circle_progress_bar"
+                    android:rotation="-90" />
+
+                <TextView
+                    android:id="@+id/tv_partial_color_blind_percentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/nsemibold"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="30%" />
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/nbold"
+                android:text="@string/total_color_blind"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp">
+
+                <ProgressBar
+                    android:id="@+id/total_color_blind_progress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:indeterminate="false"
+                    android:progressDrawable="@drawable/circle_progress_bar"
+                    android:rotation="-90" />
+
+                <TextView
+                    android:id="@+id/tv_total_color_blind_percentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/nsemibold"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="10%" />
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/nbold"
+                android:gravity="center"
+                android:text="@string/title_result_information"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/nsemibold"
+                android:gravity="center"
+                android:text="@string/sub_title_result_information"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
